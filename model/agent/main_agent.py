@@ -3,9 +3,7 @@ from typing import List, Dict, Any, cast
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-
 from enum import Enum
-
 from openai import OpenAI
 from pydantic import BaseModel, field_serializer, Field
 
@@ -88,7 +86,7 @@ class Response(BaseModel):
     recommendations_en : List[Recommendation]
     recommendations_ar : List[Recommendation_AR]
 
-    
+
     references_and_resources_links: List[str]
 
 
@@ -129,6 +127,9 @@ class GPTAgent:
         
         response = self.client.responses.parse(
         model= self.model_version,
+        tools= [
+            { "type": "web_search" },
+        ],
         input=cast(Any, [
             {
                 "role": "system",
@@ -142,7 +143,7 @@ class GPTAgent:
         if response.output_parsed is not None:
             return response.output_parsed.model_dump()
         else:
-            raise ValueError("Failed to parse response: output_parsed is None")
+            raise ValueError(f"Failed to parse response: output_parsed is {response.output_parsed}")
     
 
 if __name__ == "__main__":

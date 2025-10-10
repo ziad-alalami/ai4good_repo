@@ -1,0 +1,86 @@
+{
+    "english_sentences": {
+        "1": {
+            "text": "The quick brown fox jumps over the lazy dog.",
+            "phonemes": "ðə kwɪk bɹaʊn fɑːks dʒʌmps oʊvɚ ðə leɪzi dɑːɡ"
+        },
+        "2": {
+            "text": "She sells seashells by the seashore.",
+            "phonemes": "ʃiː sɛlz siːʃɛlz baɪ ðə siːʃɔːɹ"
+        },
+        "3": {
+            "text": "Can you imagine a world without music?",
+            "phonemes": "kæn juː ɪmædʒɪn ɐ wɜːld wɪðaʊt mjuːzɪk"
+        },
+        "4": {
+            "text": "Tomorrow's weather might be unpredictable.",
+            "phonemes": "təmɑːɹoʊz wɛðɚ maɪt biː ʌnpɹɪdɪktəbəl"
+        },
+        "5": {
+            "text": "I enjoy reading books late at night.",
+            "phonemes": "aɪ ɛndʒɔɪ ɹiːdɪŋ bʊks leɪt æt naɪt"
+        },
+        "6": {
+            "text": "Please close the door quietly behind you.",
+            "phonemes": "pliːz kloʊs ðə dɔːɹ kwaɪətli bᵻhaɪnd juː"
+        },
+        "7": {
+            "text": "He couldn't believe his eyes when he saw it.",
+            "phonemes": "hiː kʊdənt bᵻliːv hɪz aɪz wɛn hiː sɔː ɪt"
+        },
+        "8": {
+            "text": "Learning a new language can be fun and challenging.",
+            "phonemes": "lɜːnɪŋ ɐ nuː læŋɡwɪdʒ kæn biː fʌn ænd tʃæləndʒɪŋ"
+        },
+        "9": {
+            "text": "The cat sat on the windowsill, watching birds.",
+            "phonemes": "ðə kæt sæt ɔnðə wɪndoʊsɪl wɑːtʃɪŋ bɜːdz"
+        },
+        "10": {
+            "text": "Coffee tastes better when shared with friends.",
+            "phonemes": "kɔfi teɪsts bɛɾɚ wɛn ʃɛɹd wɪð fɹɛndz"
+        }
+    },
+    "arabic_sentences": {
+        "1": {
+            "text": "الثعلب البني السريع يقفز فوق الكلب الكسول.",
+            "phonemes": "æl ɛlb ælbni ælsɹi iː ɪkfz ɛfdʌbəljuːkjuː ælklb ælksʊl"
+        },
+        "2": {
+            "text": "تبيع هي الأصداف بجانب الشاطئ.",
+            "phonemes": "tiːbiːwaɪ iː haɪ æl ɛsdiː æf biːdʒeɪ ænb æl dɑːlɚɹ æt"
+        },
+        "3": {
+            "text": "هل يمكنك تخيل عالم بدون موسيقى؟",
+            "phonemes": "eɪtʃɛl ɪmkŋk tiːzaɪl iː ɑːm biːdiːdʌbəljuːɛn ɛmdʌbəljuːsɪk waɪ"
+        },
+        "4": {
+            "text": "ربما يكون طقس الغد غير متوقع.",
+            "phonemes": "ɑːɹbiːɛm ɐ ɪkʊn tiːkjuːɛs ælɡd dʒɚɹ ɛmtiːdʌbəljuːkjuː iː"
+        },
+        "5": {
+            "text": "أستمتع بقراءة الكتب في وقت متأخر من الليل.",
+            "phonemes": "ɛstiːɛmtiː iː biːkjuːɑːɹ ɐp ælktb faɪ dʌbəljuːkjuːtiː ɛmtiː ɛksɑːɹ ɛmɛn ælaɪl"
+        },
+        "6": {
+            "text": "يرجى إغلاق الباب بهدوء خلفك.",
+            "phonemes": "ɪədʒ waɪ dʒiːɛl æk ælb æb biːeɪtʃdiːdʌbəljuː ɛksɛlɛfkeɪ"
+        },
+        "7": {
+            "text": "لم يصدق عينيه عندما رآه.",
+            "phonemes": "ɛlɛm waɪ ɛsdiːkjuː aɪni ɛndəm ɐ ɑːɹ eɪtʃ"
+        },
+        "8": {
+            "text": "تعلم لغة جديدة يمكن أن يكون ممتعًا وتحديًا.",
+            "phonemes": "tiː ɛlm ɛldʒiːpiː dʒeɪdɪdp ɪmkən ɛn ɪkʊn ɛmɛmtiː iːɛfeɪ dʌbəljuːtiː eɪtʃdiːwaɪ ɛfeɪ"
+        },
+        "9": {
+            "text": "جلست القطة على حافة النافذة تراقب الطيور.",
+            "phonemes": "dʒeɪɛlɛstiː ælk tiːpiː ɛl waɪ eɪtʃ æfp æln æf æstɚɹɪsk piː tiːɑːɹ ækb æl tɪr"
+        },
+        "10": {
+            "text": "القهوة ألذ عندما تُشارك مع الأصدقاء.",
+            "phonemes": "ælkhʊp ɛl æstɚɹɪsk ɛndəm ɐ tuː dɑːlɚɹ ɑːɹk ɛm iː æl ɛsdiːkjuː eɪ"
+        }
+    }
+}
