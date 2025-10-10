@@ -12,3 +12,4 @@ wheels/
 data/torgo_data/
 data/data.csv
 test.ipynb
+.env
