@@ -147,6 +147,6 @@ class GPTAgent:
 
 if __name__ == "__main__":
     load_dotenv(override= True)
-    response = (Path(os.environ.get("BACKGROUND_ANSWER_STORAGE_DIR", ".data/background/responses/")) / "1.json").read_text(encoding= "utf-8")
+    response = (Path(os.environ.get("BACKGROUND_ANSWER_STORAGE_DIR", "./data/background/responses/")) / "1.json").read_text(encoding= "utf-8")
     agent = GPTAgent()
     print(json.dumps(agent.analyze_data(json.loads(response)), indent = 4))
