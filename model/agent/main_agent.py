@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 from enum import Enum
 from openai import OpenAI
 from pydantic import BaseModel, field_serializer, Field
+from uuid import UUID
+
+from utils.storage.storage import store_response
 
 
 load_dotenv(override= True)
@@ -144,10 +147,22 @@ class GPTAgent:
             return response.output_parsed.model_dump()
         else:
             raise ValueError(f"Failed to parse response: output_parsed is {response.output_parsed}")
-    
+        
+
+analyzer_agent = GPTAgent()
+
+
+def get_agent_response(uuid: UUID, data: Dict):
+
+    response =  analyzer_agent.analyze_data(data)
+    store_response(uuid= uuid, is_agent= True, response= response)
+    return response
+
+
+
 
 if __name__ == "__main__":
     load_dotenv(override= True)
-    response = (Path(os.environ.get("BACKGROUND_ANSWER_STORAGE_DIR", "./data/background/responses/")) / "1.json").read_text(encoding= "utf-8")
+    response = (Path(os.environ.get("BACKGROUND_ANSWER_STORAGE_DIR", "./data/background/user_responses/")) / "1.json").read_text(encoding= "utf-8")
     agent = GPTAgent()
     print(json.dumps(agent.analyze_data(json.loads(response)), indent = 4))

@@ -1,10 +1,12 @@
-from bert import SpectrogramBERTClassifier
+from .bert import SpectrogramBERTClassifier
 import torch
 import numpy as np
 import librosa
+import os
+from dotenv import load_dotenv
 
 
-class Claassifier:
+class Classifier:
     def __init__(self, model_path):
         self.model = load_model(model_path)
     
@@ -26,3 +28,13 @@ def load_model(model_path, n_mels=80, num_classes=1):
     model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
     model.eval()
     return model
+
+
+load_dotenv(override= True)
+model_path = os.environ.get("BERT_MODEL_FILE", "./data/models/best_model.pt")
+classifier = Classifier(model_path)
+
+def predict(wav_path: str , gender: str) -> float:
+
+    is_male = int(gender.lower() in ('male', 'm','ذكر'))
+    return classifier.predict(wav_file= wav_path, gender= is_male)

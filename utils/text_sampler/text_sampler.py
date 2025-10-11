@@ -18,9 +18,9 @@ def sample_text_phoneme(lang: str) -> Dict[str, str]:
 
     if lang == "en":
         sentences = text_json["english_sentences"]
-        rand_key = str(randint(1, len(sentences.keys()) + 1))
+        rand_key = str(randint(1, len(sentences.keys())))
         return {"response": sentences[rand_key]}
     
     sentences = text_json["arabic_sentences"]
-    rand_key = str(randint(1, len(sentences.keys()) + 1))
+    rand_key = str(randint(1, len(sentences.keys())))
     return {"response": sentences[rand_key]}

@@ -1,5 +1,5 @@
-from bert import SpectrogramBERTClassifier
-from data import TrainWindowDataset, FullClipDataset
+from model.bert.bert import SpectrogramBERTClassifier
+from model.bert.data import TrainWindowDataset, FullClipDataset
 import torch
 import torch.nn as nn
 import torch.optim as optim

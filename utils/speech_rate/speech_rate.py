@@ -1,9 +1,9 @@
 from dotenv import load_dotenv
 import os
 from pathlib import Path
-import wave
 from typing import List
-from utils.phonemes.text_to_phoneme import get_phonemes, Language
+import wave
+#from utils.phonemes.text_to_phoneme import get_phonemes, Language
 
 load_dotenv(override= True)
 BUFFER_TIME = float(os.environ.get("SPEECH_BUFFER_TIME", 2))
@@ -48,7 +48,7 @@ def get_speech_rate(wav_file_path : str, text : str) -> float:
         return text_count / wav_time_duration * 60
     return 0
 
-def get_phoneme_rate(wav_file_path: str, phonemes: List[str]) -> float:
+def get_phoneme_rate(wav_file_path: str, phonemes: List) -> float:
 
     if len(phonemes) == 0:
         return 0
@@ -67,10 +67,10 @@ def get_phoneme_rate(wav_file_path: str, phonemes: List[str]) -> float:
 
 
 if __name__ == "__main__":
-
-    wav_file = str(Path(os.environ.get("WAV_STORAGE_DIR", "./data/audio/")) / "1.wav")
-    text = "I love eating apples and bananas"
-    phonemes = get_phonemes(text= text, language= Language.english)
-    print(f"WAV Duration: {get_wav_duration(wav_file)}")
-    print(f"Speech Rate: {get_speech_rate(wav_file, text)}")
-    print(f"Phoneme Rate: {get_phoneme_rate(wav_file, phonemes)}") # type: ignore
+    pass
+    # wav_file = str(Path(os.environ.get("WAV_STORAGE_DIR", "./data/audio/")) / "1.wav")
+    # text = "I love eating apples and bananas"
+    # phonemes = get_phonemes(text= text, language= Language.english)
+    # print(f"WAV Duration: {get_wav_duration(wav_file)}")
+    # print(f"Speech Rate: {get_speech_rate(wav_file, text)}")
+    # print(f"Phoneme Rate: {get_phoneme_rate(wav_file, phonemes)}") # type: ignore
