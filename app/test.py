@@ -17,8 +17,8 @@ if __name__ == "__main__":
 
     r = requests.get(url + "request_text", params= params)
     print(r.json())
-    text = r.json().get("response").get("text")
-    phonemes = r.json().get("response").get("phonemes")
+    text = r.json().get("data").get("text")
+    phonemes = r.json().get("data").get("phonemes")
 
     print(response_path.read_text(encoding= "utf-8"))
     response_data = {
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     # print the response
     print("Status:", res.status_code)
     try:
-        print("Response:", res.json())
+        print("Response:", json.dumps(res.json(), indent= 4))
     except Exception:
         # print raw text to help debug non-JSON responses (404 pages, HTML errors, etc.)
         print("Response text:", res.text)

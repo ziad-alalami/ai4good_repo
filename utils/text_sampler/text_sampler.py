@@ -13,14 +13,14 @@ text_json = json.loads(text_path.read_text(encoding="utf-8"))
 def sample_text_phoneme(lang: str) -> Dict[str, str]:
 
     if lang not in ["en", "ar"]:
-        return {"response": f"LANGUAGE {lang} NOT SUPPORTED. CHOOSE BETWEEN en AND ar"}
+        return {"data": f"LANGUAGE {lang} NOT SUPPORTED. CHOOSE BETWEEN en AND ar"}
     
 
     if lang == "en":
         sentences = text_json["english_sentences"]
         rand_key = str(randint(1, len(sentences.keys())))
-        return {"response": sentences[rand_key]}
+        return {"data": sentences[rand_key]}
     
     sentences = text_json["arabic_sentences"]
     rand_key = str(randint(1, len(sentences.keys())))
-    return {"response": sentences[rand_key]}
+    return {"data": sentences[rand_key]}

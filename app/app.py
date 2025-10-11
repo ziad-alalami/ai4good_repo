@@ -27,7 +27,7 @@ request_id = len(os.listdir("./data/audio/"))
 @app.route("/questions", methods = ['GET'])
 def get_questions():
 
-    return jsonify({'response': question_json})
+    return jsonify({"data": question_json})
 
 
 
@@ -98,8 +98,9 @@ def upload():
 
     agent_response = get_agent_response(uuid = request_id, data = data)
     response = {
-        "response":
+        "data":
         {
+            "id": str(request_id),
             "agent_response" : agent_response,
             "speech_rate" : data['speech_rate'],
             "phoneme_rate": data['phoneme_rate'],

@@ -15,6 +15,7 @@ convo_path = Path(os.environ.get("AGENT_CONVO_DIR", "./data/agent_convo"))
 
 audio_path.mkdir(parents=True, exist_ok=True)
 data_path.mkdir(parents=True, exist_ok=True)
+convo_path.mkdir(parents=True, exist_ok=True)
 
 def save_audio(uuid: UUID, audio_wav: FileStorage) -> bool:
 
@@ -56,10 +57,15 @@ def get_data(uuid: UUID) -> Dict[str, str]:
 
 def store_response(uuid: UUID, is_agent: bool, response: Dict[str, List]) -> bool:
 
-    try:
+    #try:
         file = convo_path / f"{str(uuid)}.json"
-        convo = json.loads(file.read_text())
 
+        if file.exists():
+            convo = json.loads(file.read_text())
+        
+        else:
+            convo = []
+        
         message = None
         if is_agent:
             message = {"agent": response}
@@ -72,9 +78,9 @@ def store_response(uuid: UUID, is_agent: bool, response: Dict[str, List]) -> boo
 
         return True
     
-    except Exception as e:
-        print(f"Error while storing message in convo file: {e}")
-        return False
+    # except Exception as e:
+    #     print(f"Error while storing message in convo file: {e}")
+    #     return False
 
 
 
