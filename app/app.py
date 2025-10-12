@@ -3,13 +3,14 @@ import json
 import os
 from dotenv import load_dotenv
 from pathlib import Path
-from uuid import uuid4
+from uuid import uuid4, UUID
 
 from utils.text_sampler.text_sampler import sample_text_phoneme
 from utils.storage.storage import save_data, save_audio, get_audio_path
 from utils.speech_rate.speech_rate import get_speech_rate, get_phoneme_rate
 #from model.bert.inference import predict
 from model.agent.main_agent import get_agent_response
+from model.agent.chatbot import respond
 
 app = Flask(__name__)
 
@@ -109,6 +110,26 @@ def upload():
     }
     
     return jsonify(response)
+
+@app.route('/chatbot', methods=['POST'])
+def chatbot():
+    try:
+        data = request.get_json()
+
+        if not data or 'uuid' not in data or 'message' not in data:
+            return jsonify({"data": "Missing 'uuid' or 'message' in request body"}), 400
+
+        uuid = data['uuid']
+        user_query = data['message']
+
+        response = respond(uuid=UUID(uuid), user_text=user_query)
+
+        return jsonify({"data": response}), 200
+
+    except Exception as e:
+        return jsonify({"data": str(e)}), 500
+
+    
 
 
 if __name__ == "__main__":

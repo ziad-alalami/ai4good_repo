@@ -55,9 +55,9 @@ def get_data(uuid: UUID) -> Dict[str, str]:
     return json.loads(file.read_text(encoding= "utf-8"))
 
 
-def store_response(uuid: UUID, is_agent: bool, response: Dict[str, List]) -> bool:
+def store_response(uuid: UUID, is_agent: bool, response: Dict[str, List] | str) -> bool:
 
-    #try:
+    try:
         file = convo_path / f"{str(uuid)}.json"
 
         if file.exists():
@@ -78,9 +78,19 @@ def store_response(uuid: UUID, is_agent: bool, response: Dict[str, List]) -> boo
 
         return True
     
-    # except Exception as e:
-    #     print(f"Error while storing message in convo file: {e}")
-    #     return False
+    except Exception as e:
+        print(f"Error while storing message in convo file: {e}")
+        return False
+    
+def get_chat(uuid: UUID) -> List[Dict]:
+
+    file = convo_path / f"{str(uuid)}.json"
+
+    if not file.exists():
+        return [{}]
+    
+    return json.loads(file.read_text())
+    
 
 
 

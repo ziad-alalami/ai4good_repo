@@ -46,3 +46,11 @@ if __name__ == "__main__":
     except Exception:
         # print raw text to help debug non-JSON responses (404 pages, HTML errors, etc.)
         print("Response text:", res.text)
+    
+    msg = {
+        "uuid": "e4546b0e-d469-461f-b35a-4668aca5b9ee",
+        "message": "Why would I need to go to a speech therapist then what are they going to do?"
+    }
+    r = requests.post(url + "chatbot", json= msg)
+
+    print(r.json())
