@@ -13,3 +13,4 @@ data/torgo_data/
 data/data.csv
 test.ipynb
 .env
+model/bert/runs/

@@ -9,12 +9,12 @@ class SpectrogramBERTClassifier(nn.Module):
         self,
         n_mels=80,
         num_classes=2,
-        hidden_size=384,
+        hidden_size=480,
         num_layers=6,
-        num_heads=6,
-        patch_size=4,
-        dropout=0.1,
-        max_positions=2048
+        num_heads=12,
+        patch_size=1,
+        dropout=0.2,
+        max_positions=256,
     ):
         super().__init__()
         self.n_mels = n_mels
