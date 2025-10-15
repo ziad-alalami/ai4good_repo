@@ -54,7 +54,7 @@ def train():
     parser = argparse.ArgumentParser(description='Train SpectrogramBERT with sliding windows')
     parser.add_argument('--data_csv', type=str, required=True)
     parser.add_argument('--batch_size', type=int, default=16)
-    parser.add_argument('--num_epochs', type=int, default=15)
+    parser.add_argument('--num_epochs', type=int, default=10)
     parser.add_argument('--learning_rate', type=float, default=1e-4)
     parser.add_argument('--n_mels', type=int, default=80)
     parser.add_argument('--patch_size', type=int, default=1)
