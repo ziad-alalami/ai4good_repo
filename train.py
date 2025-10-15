@@ -1,3 +1,4 @@
+import os
 from model.bert.bert import SpectrogramBERTClassifier
 from model.bert.data import TrainWindowDataset, FullClipDataset
 import torch
@@ -54,11 +55,16 @@ def train():
     parser.add_argument('--data_csv', type=str, required=True)
     parser.add_argument('--batch_size', type=int, default=16)
     parser.add_argument('--num_epochs', type=int, default=10)
-    parser.add_argument('--learning_rate', type=float, default=2e-4)
+    parser.add_argument('--learning_rate', type=float, default=1e-4)
     parser.add_argument('--n_mels', type=int, default=80)
     parser.add_argument('--patch_size', type=int, default=1)
     parser.add_argument('--window_T', type=int, default=128)
     parser.add_argument('--hop_T', type=int, default=64)
+    parser.add_argument('--warmup_ratio', type=float, default=0.1, help='fraction of epochs for linear warmup')
+    parser.add_argument('--eta_min', type=float, default=1e-6, help='min LR for cosine annealing')
+    parser.add_argument('--max_grad_norm', type=float, default=1.0, help='global grad norm clip')
+    parser.add_argument('--warmup_start_factor', type=float, default=1e-3, help='initial LR multiplier for LinearLR warmup (>0, <=1)')
+
     args = parser.parse_args()
 
     df = pd.read_csv(args.data_csv)
@@ -74,22 +80,54 @@ def train():
         n_mels=args.n_mels,
         num_classes=2,
         patch_size=args.patch_size,
-        max_positions=2048
+        max_positions=256,
     )
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=1e-2)
-    best_val_loss = float('inf')
+    
+    warmup_epochs = max(0, int(round(args.num_epochs * args.warmup_ratio)))
+    main_epochs = max(1, args.num_epochs - warmup_epochs)
 
+    if warmup_epochs > 0:
+        warmup = torch.optim.lr_scheduler.LinearLR(
+            optimizer,
+            start_factor=max(1e-8, min(1.0, args.warmup_start_factor)),
+            end_factor=1.0,
+            total_iters=warmup_epochs
+        )
+        cosine = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=main_epochs,
+            eta_min=args.eta_min
+        )
+        scheduler = torch.optim.lr_scheduler.SequentialLR(
+            optimizer,
+            schedulers=[warmup, cosine],
+            milestones=[warmup_epochs]
+        )
+    else:
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=args.num_epochs,
+            eta_min=args.eta_min
+        )
+
+    best_val_loss = float('inf')
     train_losses = []
     val_losses = []
+
+    run_time = int(time.time())
+    os.makedirs(f"model/bert/runs/{run_time}", exist_ok=True)
 
     for epoch in range(1, args.num_epochs + 1):
         model.train()
         total_loss = 0.0
-        for X, y, g in tqdm(train_loader, desc=f"Epoch {epoch}/{args.num_epochs} [train]"):
+        pbar = tqdm(train_loader, desc=f"Epoch {epoch}/{args.num_epochs} [train]")
+
+        for X, y, g in pbar:
             X, y = X.to(device), y.to(device)
             g = g.to(device).view(-1, 1)
             lengths = torch.full((X.size(0),), X.size(-1), dtype=torch.long, device=device)
@@ -98,6 +136,9 @@ def train():
             logits = model(X, lengths=lengths, gender=g)
             loss = criterion(logits, y)
             loss.backward()
+
+            nn.utils.clip_grad_norm_(model.parameters(), args.max_grad_norm)
+
             optimizer.step()
             total_loss += loss.item() * X.size(0)
 
@@ -117,12 +158,14 @@ def train():
                 total    += 1
         val_loss /= max(1, total)
         val_acc  = correct / max(1, total)
-        print(f"Epoch {epoch}: TrainLoss={train_loss:.4f} | ValLoss={val_loss:.4f} | ValAcc={val_acc:.4f}")
-        # torch.save(model.state_dict(), f"models/model_epoch{epoch}_val_loss_{val_loss:.4f}.pt")
+
+        scheduler.step()
+        current_lr = optimizer.param_groups[0]['lr']
+        print(f"Epoch {epoch}: TrainLoss={train_loss:.4f} | ValLoss={val_loss:.4f} | ValAcc={val_acc:.4f} | LR={current_lr:.6f}")
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            torch.save(model.state_dict(), f"runs/{int(time.time())}/best_model.pt")
+            torch.save(model.state_dict(), f"model/bert/runs/{run_time}/best_model.pt")
             print(f"  Saved best model with val_loss {best_val_loss:.4f}")
 
         train_losses.append(train_loss)
@@ -134,7 +177,7 @@ def train():
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
         plt.title('Training and Validation Loss over Epochs')
-        plt.savefig(f'runs/{int(time.time())}/loss_curve.png')
+        plt.savefig(f'model/bert/runs/{run_time}/loss_curve.png')
         plt.close()
 
 
