@@ -8,3 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
+
+data/torgo_data/
+data/data.csv
+data/torgo
+data/Recording.m4a
+test.ipynb
+.env
+model/bert/runs/
