@@ -383,7 +383,7 @@ const AnalysisPage = ({ onRestart, analysis }) => {
     },
     { 
       label: isArabic ? 'حالة المعدل' : 'Rate Status', 
-      value: analysis.data.agent_response.speech_rate_severity,
+      value: isArabic ? analysis.data.agent_response.speech_rate_severity_ar : analysis.data.agent_response.speech_rate_severity,
       unit: ''
     },
   ];

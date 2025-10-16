@@ -28,6 +28,12 @@ class SpeechRateSeverity(str, Enum):
     normal = "Normal (Good)"
     high = "Higher than average (Good)"
 
+class SpeechRateSeverity_AR(str, Enum):
+    low = "منخفض (يحتاج لتحسين)"
+    mild_low = "منخفض قليلا (يحتاج لتحسين بسيط)"
+    normal = "طبيعي (جيد)"
+    high = "أعلى من المتوسط (ممتاز)"
+
 class RootCause(BaseModel):
 
     cause: str
@@ -79,6 +85,7 @@ class Response(BaseModel):
     speech_rate_comparison_ar: str
 
     speech_rate_severity: SpeechRateSeverity
+    speech_rate_severity_ar: SpeechRateSeverity_AR
 
     disorders_en: List[Disorder]
     disorders_ar: List[Disorder]
@@ -95,6 +102,10 @@ class Response(BaseModel):
 
 
     @field_serializer("speech_rate_severity", mode="plain")
+    def _ser_speech_rate_sev(self, v):
+        return v.value if v is not None else v
+    
+    @field_serializer("speech_rate_severity_ar", mode="plain")
     def _ser_speech_rate_sev(self, v):
         return v.value if v is not None else v
 
