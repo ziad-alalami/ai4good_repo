@@ -34,8 +34,11 @@
 
 // export default App
 
+import AssessmentPage from './components/AssessmentPage';
+import RecordingPage from './components/RecordingPage';
+import SpeechAnalysisApp from './components/SpeechAnalysisApp';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Menu, X, Mic, MicOff, CheckCircle, BarChart3, Send, Home, ChevronRight, Brain, Zap, Target } from 'lucide-react';
 // Note: Assuming Tailwind CSS setup for styling, as 'index.css' is referenced but not provided.
 
@@ -279,262 +282,426 @@ const AboutPage = () => {
 };
 
 // Assessment Component
-const AssessmentPage = ({ onComplete }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
 
-  const questions = [
-    { id: 1, question: 'How often do you experience speech difficulty?', options: ['Rarely', 'Sometimes', 'Often', 'Very Often'] },
-    { id: 2, question: 'Which sounds are most challenging for you?', options: ['Consonants', 'Vowels', 'Mixed', 'Unclear'] },
-    { id: 3, question: 'How long have you had this condition?', options: ['Less than 6 months', '6-12 months', '1-2 years', 'More than 2 years'] },
-  ];
 
-  const handleAnswer = (option) => {
-    const newAnswers = { ...answers, [currentQuestion]: option };
-    setAnswers(newAnswers);
-
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      onComplete(newAnswers);
-    }
-  };
-
-  return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-      {/* FIX: Increased width from max-w-2xl to max-w-3xl for a more expansive form layout on desktop */}
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Assessment</h2>
-          <p className="text-gray-600">Question {currentQuestion + 1} of {questions.length}</p>
-          <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-indigo-600 to-blue-600 transition-all duration-500"
-              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-            />
-          </div>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg p-8 animate-in fade-in">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">
-            {questions[currentQuestion].question}
-          </h3>
-
-          <div className="space-y-3">
-            {questions[currentQuestion].options.map((option, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleAnswer(option)}
-                className="w-full p-4 text-left bg-white border-2 border-gray-200 rounded-lg hover:border-indigo-600 hover:bg-indigo-50 transition-all font-semibold text-gray-800 group"
-              >
-                <div className="flex items-center justify-between">
-                  <span>{option}</span>
-                  <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition-colors" />
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // Recording Component
-const RecordingPage = ({ onSubmit }) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [isRecording, setIsRecording] = useState(false);
-  const [recordings, setRecordings] = useState([]);
-  const mediaRecorderRef = useRef(null);
-  const audioChunksRef = useRef([]);
 
-  const texts = [
-    'Please read this sentence clearly: The quick brown fox jumps over the lazy dog.',
-    'Try pronouncing this carefully: She sells seashells by the seashore.',
-    'Read at a comfortable pace: Peter Piper picked a peck of pickled peppers.',
-  ];
-
-  // Custom function to show alert message in a non-blocking way (replacing standard alert)
-  const showMicrophoneError = (message) => {
-    console.error(message);
-    // In a real app, this would be a custom toast/modal
-    // Since we cannot use alert(), we'll rely on the UI update or console log for error visibility.
-  };
-
-  const startRecording = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorderRef.current = new MediaRecorder(stream);
-      audioChunksRef.current = [];
-
-      mediaRecorderRef.current.ondataavailable = (e) => {
-        audioChunksRef.current.push(e.data);
-      };
-
-      mediaRecorderRef.current.onstop = () => {
-        // Use audio/mpeg for broader compatibility if WAV isn't strictly needed, 
-        // but sticking to 'audio/wav' as per original code for minimal change.
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' }); 
-        setRecordings([...recordings, { textIndex: currentTextIndex, audio: audioBlob }]);
-      };
-
-      mediaRecorderRef.current.start();
-      setIsRecording(true);
-    } catch (err) {
-      showMicrophoneError('Could not access microphone. Please check permissions.');
-    }
-  };
-
-  const stopRecording = () => {
-    if (mediaRecorderRef.current && isRecording) {
-      mediaRecorderRef.current.stop();
-      // Stop all tracks to release the microphone
-      mediaRecorderRef.current.stream.getTracks().forEach(track => track.stop());
-      setIsRecording(false);
-      // Automatically advance to the next text after stopping, if not the last one
-      if (currentTextIndex < texts.length - 1) {
-        // Timeout ensures the recording is saved before moving to the next text visually
-        setTimeout(() => setCurrentTextIndex(currentTextIndex + 1), 300);
-      }
-    }
-  };
-
-  return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-      {/* FIX: Increased width from max-w-2xl to max-w-3xl for a more expansive form layout on desktop */}
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Record Your Speech</h2>
-          <p className="text-gray-600">Recording {currentTextIndex + 1} of {texts.length}</p>
-          <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-indigo-600 to-blue-600 transition-all duration-500"
-              style={{ width: `${((currentTextIndex + 1) / texts.length) * 100}%` }}
-            />
-          </div>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg p-8 animate-in fade-in">
-          <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-8 mb-8 border-l-4 border-indigo-600">
-            <p className="text-lg text-gray-800 leading-relaxed font-medium">
-              {texts[currentTextIndex]}
-            </p>
-          </div>
-
-          <div className="flex justify-center mb-8">
-            {!isRecording ? (
-              <button
-                onClick={startRecording}
-                className="bg-gradient-to-r from-red-500 to-red-600 hover:shadow-xl text-white font-bold py-4 px-8 rounded-full text-lg flex items-center gap-3 transition-all transform hover:scale-105"
-                disabled={currentTextIndex === texts.length} // Disable if all recordings are done
-              >
-                <Mic className="w-6 h-6" />
-                Start Recording
-              </button>
-            ) : (
-              <button
-                onClick={stopRecording}
-                className="bg-gradient-to-r from-gray-600 to-gray-700 text-white font-bold py-4 px-8 rounded-full text-lg flex items-center gap-3 transition-all animate-pulse"
-              >
-                <MicOff className="w-6 h-6" />
-                Stop Recording
-              </button>
-            )}
-          </div>
-
-          {/* This check confirms the current text index has a recording associated with it */}
-          {recordings.some(r => r.textIndex === currentTextIndex) && (
-            <div className="flex items-center justify-center gap-2 text-green-600 font-semibold mb-8 animate-in fade-in">
-              <CheckCircle className="w-5 h-5" />
-              Recording saved for this text
-            </div>
-          )}
-
-          <div className="flex gap-4">
-            {currentTextIndex === texts.length - 1 && recordings.length === texts.length && !isRecording && (
-              <button
-                onClick={onSubmit}
-                className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:shadow-lg text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-all"
-              >
-                <Send className="w-5 h-5" />
-                Submit for Analysis
-              </button>
-            )}
-            {/* Remove the redundant 'Next Text' button logic since `stopRecording` handles auto-advance */}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // Analysis Component
-const AnalysisPage = ({ onRestart }) => {
-  const analysis = {
-    overall: 87,
-    clarity: 82,
-    pacing: 90,
-    articulation: 85,
-    suggestions: [
-      'Work on consonant clarity, especially with "s" and "th" sounds',
-      'Practice slow, deliberate pronunciation of complex words',
-      'Maintain consistent pacing throughout longer sentences',
-    ],
+import { Globe, AlertCircle, TrendingUp, BookOpen, Users } from 'lucide-react';
+import {  MessageCircle } from 'lucide-react';
+
+const AnalysisPage = ({ onRestart, analysis }) => {
+  const [language, setLanguage] = useState('ar');
+  const [showChat, setShowChat] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [inputMessage, setInputMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const chatEndRef = useRef(null);
+  
+  const isArabic = language === 'ar';
+  const data = analysis?.data;
+
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
+
+  const sendMessage = async () => {
+    if (!inputMessage.trim() || isLoading) return;
+
+    const userMessage = { role: 'user', content: inputMessage };
+    setMessages(prev => [...prev, userMessage]);
+    setInputMessage('');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/chatbot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          uuid: analysis.id,
+          message: inputMessage
+        })
+      });
+
+      const responseData = await response.json();
+      
+      if (response.ok) {
+        setMessages(prev => [...prev, { role: 'assistant', content: responseData.data }]);
+      } else {
+        setMessages(prev => [...prev, { 
+          role: 'assistant', 
+          content: isArabic ? 'عذراً، حدث خطأ. حاول مرة أخرى.' : 'Sorry, an error occurred. Please try again.' 
+        }]);
+      }
+    } catch (error) {
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: isArabic ? 'فشل الاتصال. تحقق من اتصالك بالإنترنت.' : 'Connection failed. Check your internet connection.' 
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
+  
+  if (!data) {
+    return (
+      <div className="pt-24 pb-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <p className="text-xl text-gray-700">No analysis data available</p>
+        </div>
+      </div>
+    );
+  }
+  console.log("aa", data);
+  const overview = isArabic ? data.overview_ar : data.overview_en;
+  const disorders = isArabic ? data.disorders_ar : data.disorders_en;
+  const recommendations = isArabic ? data.recommendations_ar : data.recommendations_en;
+  const rootCauses = isArabic ? data.root_causes_ar : data.root_causes_en;
+  const speechRateComp = isArabic ? data.speech_rate_comparison_ar : data.speech_rate_comparison_en;
+
+  const metrics = [
+    { 
+      label: isArabic ? 'معدل الكلام' : 'Speech Rate', 
+      value: Math.round(analysis.data.speech_rate),
+      unit: 'WPM'
+    },
+    { 
+      label: isArabic ? 'معدل الصوتيات' : 'Phoneme Rate', 
+      value: Math.round(analysis.data.phoneme_rate),
+      unit: '/min'
+    },
+    { 
+      label: isArabic ? 'احتمال عسر التلفظ' : 'Dysarthria Prob', 
+      value: Math.round(analysis.data.dysarthria_prob * 100),
+      unit: '%'
+    },
+    { 
+      label: isArabic ? 'حالة المعدل' : 'Rate Status', 
+      value: data.speech_rate_severity,
+      unit: ''
+    },
+  ];
 
   return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-      {/* max-w-3xl is good for dashboards, correctly centered */}
-      <div className="max-w-3xl mx-auto">
-        <div className="flex items-center justify-center gap-3 mb-12">
-          <div className="bg-gradient-to-br from-indigo-600 to-blue-600 p-3 rounded-lg">
-            <BarChart3 className="w-6 h-6 text-white" />
+    <div className={`pt-24 pb-20 px-4 sm:px-6 lg:px-8 ${isArabic ? 'rtl' : 'ltr'}`}>
+      <div className="max-w-4xl mx-auto">
+        {/* Header with Language Toggle */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-3">
+            <div className="bg-gradient-to-br from-indigo-600 to-blue-600 p-3 rounded-lg">
+              <BarChart3 className="w-6 h-6 text-white" />
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900">
+              {isArabic ? 'نتائج التحليل' : 'Analysis Results'}
+            </h2>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900">Your Results</h2>
+          
+          <button
+            onClick={() => setLanguage(lang => lang === 'ar' ? 'en' : 'ar')}
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            <Globe className="w-5 h-5" />
+            <span className="font-medium">{isArabic ? 'English' : 'العربية'}</span>
+          </button>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-4 mb-12">
-          {[
-            { label: 'Overall Score', value: analysis.overall },
-            { label: 'Clarity', value: analysis.clarity },
-            { label: 'Pacing', value: analysis.pacing },
-            { label: 'Articulation', value: analysis.articulation },
-          ].map((metric, idx) => (
+        {/* Metrics Grid */}
+        <div className="grid md:grid-cols-4 gap-4 mb-8">
+          {metrics.map((metric, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-6 text-center border border-gray-100 hover:border-indigo-200 hover:shadow-lg transition-all animate-in fade-in"
-              style={{ animationDelay: `${idx * 100}ms` }}
+              className="bg-white rounded-xl p-5 text-center border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all"
             >
-              <p className="text-gray-600 font-semibold mb-2">{metric.label}</p>
-              <p className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+              <p className="text-gray-600 text-sm font-medium mb-2">{metric.label}</p>
+              <p className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 {metric.value}
               </p>
-              <p className="text-sm text-gray-500 mt-1">/ 100</p>
+              {metric.unit && <p className="text-xs text-gray-500 mt-1">{metric.unit}</p>}
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8 animate-in fade-in">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">Personalized Recommendations</h3>
-          <div className="space-y-4">
-            {analysis.suggestions.map((suggestion, idx) => (
-              <div key={idx} className="flex gap-4 p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-600">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm font-bold">
-                  {idx + 1}
+        {/* Overview */}
+        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 mb-6 border border-indigo-100">
+          <div className="flex items-center gap-2 mb-3">
+            <TrendingUp className="w-5 h-5 text-indigo-600" />
+            <h3 className="text-xl font-bold text-gray-900">
+              {isArabic ? 'نظرة عامة' : 'Overview'}
+            </h3>
+          </div>
+          <p className="text-gray-700 leading-relaxed">{overview}</p>
+        </div>
+
+        {/* Speech Rate Comparison */}
+        <div className="bg-white rounded-xl p-6 mb-6 border border-gray-100">
+          <div className="flex items-center gap-2 mb-3">
+            <BarChart3 className="w-5 h-5 text-blue-600" />
+            <h3 className="text-xl font-bold text-gray-900">
+              {isArabic ? 'مقارنة معدل الكلام' : 'Speech Rate Comparison'}
+            </h3>
+          </div>
+          <p className="text-gray-700">{speechRateComp}</p>
+        </div>
+
+        {/* Disorders */}
+        {disorders && disorders.length > 0 && (
+          <div className="bg-white rounded-xl p-6 mb-6 border border-gray-100">
+            <div className="flex items-center gap-2 mb-4">
+              <AlertCircle className="w-5 h-5 text-orange-600" />
+              <h3 className="text-xl font-bold text-gray-900">
+                {isArabic ? 'الاضطرابات المحتملة' : 'Potential Disorders'}
+              </h3>
+            </div>
+            {disorders.map((disorder, idx) => (
+              <div key={idx} className="mb-6 last:mb-0">
+                <h4 className="text-lg font-semibold text-gray-800 mb-3">{disorder.disorder_name}</h4>
+                
+                <div className="mb-3">
+                  <p className="text-sm font-medium text-gray-600 mb-2">
+                    {isArabic ? 'الأعراض:' : 'Symptoms:'}
+                  </p>
+                  <ul className="space-y-1">
+                    {disorder.disorder_symptoms.map((symptom, i) => (
+                      <li key={i} className="text-gray-700 text-sm pr-4 relative before:content-['•'] before:absolute before:right-0">
+                        {symptom}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-gray-800">{suggestion}</p>
+
+                <div className="mb-3">
+                  <p className="text-sm font-medium text-gray-600 mb-2">
+                    {isArabic ? 'المؤشرات:' : 'Indicators:'}
+                  </p>
+                  <ul className="space-y-1">
+                    {disorder.disorder_pointers.map((pointer, i) => (
+                      <li key={i} className="text-gray-700 text-sm pr-4 relative before:content-['•'] before:absolute before:right-0">
+                        {pointer}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-sm font-medium text-gray-600 mb-2">
+                    {isArabic ? 'الأسباب المحتملة:' : 'Possible Causes:'}
+                  </p>
+                  <ul className="space-y-1">
+                    {disorder.disorder_lying_causes.map((cause, i) => (
+                      <li key={i} className="text-gray-700 text-sm pr-4 relative before:content-['•'] before:absolute before:right-0">
+                        {cause}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Root Causes */}
+        {rootCauses && rootCauses.length > 0 && (
+          <div className="bg-white rounded-xl p-6 mb-6 border border-gray-100">
+            <div className="flex items-center gap-2 mb-4">
+              <Target className="w-5 h-5 text-purple-600" />
+              <h3 className="text-xl font-bold text-gray-900">
+                {isArabic ? 'الأسباب الجذرية' : 'Root Causes'}
+              </h3>
+            </div>
+            {rootCauses.map((item, idx) => (
+              <div key={idx} className="mb-4 last:mb-0 p-4 bg-purple-50 rounded-lg">
+                <p className="font-semibold text-gray-800 mb-2">{item.cause}</p>
+                <p className="text-gray-700 text-sm">{item.explanation}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Recommendations */}
+        <div className="bg-white rounded-xl p-6 mb-6 border border-gray-100">
+          <div className="flex items-center gap-2 mb-4">
+            <BookOpen className="w-5 h-5 text-green-600" />
+            <h3 className="text-xl font-bold text-gray-900">
+              {isArabic ? 'التوصيات' : 'Recommendations'}
+            </h3>
+          </div>
+          <div className="space-y-4">
+            {recommendations.map((rec, idx) => (
+              <div key={idx} className={`p-5 rounded-lg border-l-4 ${
+                rec.priority === 'Top' || rec.priority === 'عالي' 
+                  ? 'bg-red-50 border-red-500' 
+                  : 'bg-blue-50 border-blue-500'
+              }`}>
+                <div className="flex items-start gap-3 mb-3">
+                  <span className={`px-2 py-1 rounded text-xs font-bold text-white ${
+                    rec.priority === 'Top' || rec.priority === 'عالي'
+                      ? 'bg-red-500'
+                      : 'bg-blue-500'
+                  }`}>
+                    {rec.priority}
+                  </span>
+                  <p className="font-semibold text-gray-800 flex-1">{rec.recommendation}</p>
+                </div>
+                
+                {rec.tips && rec.tips.length > 0 && (
+                  <div className="mb-3">
+                    <p className="text-sm font-medium text-gray-600 mb-1">
+                      {isArabic ? 'نصائح:' : 'Tips:'}
+                    </p>
+                    <ul className="space-y-1">
+                      {rec.tips.map((tip, i) => (
+                        <li key={i} className="text-gray-700 text-sm pr-4 relative before:content-['→'] before:absolute before:right-0">
+                          {tip}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {rec.resources_or_links && rec.resources_or_links.length > 0 && (
+                  <div>
+                    <p className="text-sm font-medium text-gray-600 mb-1">
+                      {isArabic ? 'موارد:' : 'Resources:'}
+                    </p>
+                    {rec.resources_or_links.map((link, i) => (
+                      <a
+                        key={i}
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-indigo-600 hover:underline block"
+                      >
+                        {link}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
+        {/* Additional Resources */}
+        {data.references_and_resources_links && data.references_and_resources_links.length > 0 && (
+          <div className="bg-white rounded-xl p-6 mb-8 border border-gray-100">
+            <div className="flex items-center gap-2 mb-4">
+              <Users className="w-5 h-5 text-indigo-600" />
+              <h3 className="text-xl font-bold text-gray-900">
+                {isArabic ? 'مراجع ومصادر إضافية' : 'References & Resources'}
+              </h3>
+            </div>
+            <div className="space-y-2">
+              {data.references_and_resources_links.map((link, idx) => (
+                <a
+                  key={idx}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-indigo-600 hover:underline"
+                >
+                  {link}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Restart Button */}
         <button
           onClick={onRestart}
-          className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:shadow-xl text-white font-bold py-4 px-6 rounded-lg transition-all"
+          className="w-full bg-gradient-to-r from-indigo-600 to-blue-600 hover:shadow-xl text-white font-bold py-4 px-6 rounded-xl transition-all"
         >
-          Start New Assessment
+          {isArabic ? 'بدء تقييم جديد' : 'Start New Assessment'}
         </button>
       </div>
+
+      {/* Chat Button */}
+      <button
+        onClick={() => setShowChat(!showChat)}
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all z-50"
+      >
+        {showChat ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+      </button>
+
+      {/* Chat Window */}
+      {showChat && (
+        <div className={`fixed bottom-24 right-6 w-96 h-[500px] bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col z-50 ${isArabic ? 'rtl' : 'ltr'}`}>
+          {/* Chat Header */}
+          <div className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-4 rounded-t-xl">
+            <h3 className="font-bold text-lg flex items-center gap-2">
+              <MessageCircle className="w-5 h-5" />
+              {isArabic ? 'المساعد الذكي' : 'AI Assistant'}
+            </h3>
+            <p className="text-xs text-indigo-100 mt-1">
+              {isArabic ? 'اسأل عن نتائج التحليل' : 'Ask about your analysis results'}
+            </p>
+          </div>
+
+          {/* Messages Area */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+            {messages.length === 0 && (
+              <div className="text-center text-gray-500 text-sm mt-8">
+                {isArabic ? 'ابدأ محادثة بسؤال عن نتائجك' : 'Start a conversation by asking about your results'}
+              </div>
+            )}
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                <div
+                  className={`max-w-[80%] p-3 rounded-lg ${
+                    msg.role === 'user'
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-gray-100 text-gray-800'
+                  }`}
+                >
+                  <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                </div>
+              </div>
+            ))}
+            {isLoading && (
+              <div className="flex justify-start">
+                <div className="bg-gray-100 p-3 rounded-lg">
+                  <div className="flex gap-1">
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div ref={chatEndRef} />
+          </div>
+
+          {/* Input Area */}
+          <div className="p-4 border-t border-gray-200">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                placeholder={isArabic ? 'اكتب سؤالك هنا...' : 'Type your question...'}
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                disabled={isLoading}
+              />
+              <button
+                onClick={sendMessage}
+                disabled={isLoading || !inputMessage.trim()}
+                className="bg-indigo-600 text-white p-2 rounded-lg hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                <Send className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -543,13 +710,15 @@ const AnalysisPage = ({ onRestart }) => {
 export default function App() {
   const [page, setPage] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [analysis, setAnalysis] = useState({});
 
   const handleGetStarted = () => {
     setPage('assessment');
   };
 
-  const handleAssessmentComplete = (answers) => {
-    setPage('recording');
+  const handleAssessmentComplete = (analysis) => {
+    setPage('analysis');
+    setAnalysis(analysis)
   };
 
   const handleSubmitAnalysis = () => {
@@ -573,11 +742,11 @@ export default function App() {
 
       {page === 'about' && <AboutPage />}
 
-      {page === 'assessment' && <AssessmentPage onComplete={handleAssessmentComplete} />}
+      {page === 'assessment' && <SpeechAnalysisApp onComplete={handleAssessmentComplete} />}
 
       {page === 'recording' && <RecordingPage onSubmit={handleSubmitAnalysis} />}
 
-      {page === 'analysis' && <AnalysisPage onRestart={handleRestart} />}
+      {page === 'analysis' && <AnalysisPage onRestart={handleRestart} analysis={analysis} />}
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">

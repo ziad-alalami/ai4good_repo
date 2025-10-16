@@ -31,7 +31,7 @@ def get_phonemes(text : str , language : Language):
 if __name__ == "__main__":
 
     load_dotenv(override= True)
-    TEXT_FOLDER = Path(os.environ.get("USER_TEXT_FILE", "./data/text/user_text.json"))
+    TEXT_FOLDER = Path(os.environ.get("USER_TEXT_FILE", "./data/text/questions.json"))
     text_json = json.loads(TEXT_FOLDER.read_text(encoding= "utf-8"))
 
     english_sentences = text_json.get("english_sentences")

@@ -6,7 +6,7 @@ from typing import Dict
 from random import randint
 
 load_dotenv(override= True)
-text_path = Path(os.environ.get("USER_TEXT_FILE", "./data/background/user_text.json"))
+text_path = Path(os.environ.get("USER_TEXT_FILE", "./data/text/user_text.json"))
 text_json = json.loads(text_path.read_text(encoding="utf-8"))
 
 

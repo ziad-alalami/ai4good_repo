@@ -1,0 +1,123 @@
+[
+    {
+        "agent": {
+            "overview_en": "The analysis focuses on the speech and language capabilities of a female child who exhibits certain concerns regarding articulation and speech rate. This assessment leverages available data, including a high probability of dysarthria.",
+            "overview_ar": "\u062a\u0631\u0643\u0632 \u0627\u0644\u062a\u062d\u0644\u064a\u0644 \u0639\u0644\u0649 \u0642\u062f\u0631\u0627\u062a \u0627\u0644\u0646\u0637\u0642 \u0648\u0627\u0644\u0644\u063a\u0629 \u0644\u062f\u0649 \u0637\u0641\u0644\u0629 \u062a\u0638\u0647\u0631 \u0644\u062f\u064a\u0647\u0627 \u0628\u0639\u0636 \u0627\u0644\u0642\u0644\u0642 \u0628\u062e\u0635\u0648\u0635 \u0646\u0637\u0642 \u0627\u0644\u0643\u0644\u0645\u0627\u062a \u0648\u0633\u0631\u0639\u0629 \u0627\u0644\u0643\u0644\u0627\u0645. \u064a\u0639\u062a\u0645\u062f \u0647\u0630\u0627 \u0627\u0644\u062a\u0642\u064a\u064a\u0645 \u0639\u0644\u0649 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u062a\u0627\u062d\u0629\u060c \u0628\u0645\u0627 \u0641\u064a \u0630\u0644\u0643 \u0627\u062d\u062a\u0645\u0627\u0644 \u0645\u0631\u062a\u0641\u0639 \u0644\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638.",
+            "avg_class_wpm": 175.0,
+            "speech_rate_comparison_en": "The child's speech rate is approximately 197.55 WPM, compared to the average of approximately 175 WPM for similar age and gender. This indicates a higher than average speech rate.",
+            "speech_rate_comparison_ar": "\u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u0627\u0644\u0637\u0641\u0644\u0629 \u062d\u0648\u0627\u0644\u064a 197.55 \u0643\u0644\u0645\u0629 \u0641\u064a \u0627\u0644\u062f\u0642\u064a\u0642\u0629\u060c \u0645\u0642\u0627\u0631\u0646\u0629 \u0628\u0627\u0644\u0645\u062a\u0648\u0633\u0637 \u0627\u0644\u0630\u064a \u064a\u0642\u0627\u0631\u0628 175 \u0643\u0644\u0645\u0629 \u0641\u064a \u0627\u0644\u062f\u0642\u064a\u0642\u0629 \u0644\u0646\u0641\u0633 \u0627\u0644\u0639\u0645\u0631 \u0648\u0627\u0644\u062c\u0646\u0633. \u064a\u0634\u064a\u0631 \u0647\u0630\u0627 \u0625\u0644\u0649 \u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u0623\u0639\u0644\u0649 \u0645\u0646 \u0627\u0644\u0645\u062a\u0648\u0633\u0637.",
+            "speech_rate_severity": "Higher than average (Good)",
+            "disorders_en": [
+                {
+                    "disorder_name": "Dysarthria",
+                    "disorder_symptoms": [
+                        "Slurred speech",
+                        "Rapid speech rate"
+                    ],
+                    "disorder_pointers": [
+                        "High dysarthria probability score of 0.85",
+                        "Higher than average speech rate"
+                    ],
+                    "disorder_lying_causes": [
+                        "Neurological factors",
+                        "Muscular weakness"
+                    ]
+                }
+            ],
+            "disorders_ar": [
+                {
+                    "disorder_name": "\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638",
+                    "disorder_symptoms": [
+                        "\u0643\u0644\u0627\u0645 \u063a\u064a\u0631 \u0648\u0627\u0636\u062d",
+                        "\u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u0633\u0631\u064a\u0639"
+                    ],
+                    "disorder_pointers": [
+                        "\u0627\u0631\u062a\u0641\u0627\u0639 \u0627\u062d\u062a\u0645\u0627\u0644 \u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638 \u0628\u0646\u0633\u0628\u0629 0.85",
+                        "\u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u0623\u0639\u0644\u0649 \u0645\u0646 \u0627\u0644\u0645\u062a\u0648\u0633\u0637"
+                    ],
+                    "disorder_lying_causes": [
+                        "\u0639\u0648\u0627\u0645\u0644 \u0639\u0635\u0628\u064a\u0629",
+                        "\u0636\u0639\u0641 \u0627\u0644\u0639\u0636\u0644\u0627\u062a"
+                    ]
+                }
+            ],
+            "root_causes_en": [
+                {
+                    "cause": "Neurological factors",
+                    "explanation": "The high probability of dysarthria suggests underlying neurological issues that may affect speech control and muscle coordination."
+                }
+            ],
+            "root_causes_ar": [
+                {
+                    "cause": "\u0639\u0648\u0627\u0645\u0644 \u0639\u0635\u0628\u064a\u0629",
+                    "explanation": "\u064a\u0634\u064a\u0631 \u0627\u0644\u0627\u062d\u062a\u0645\u0627\u0644 \u0627\u0644\u0645\u0631\u062a\u0641\u0639 \u0644\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638 \u0625\u0644\u0649 \u0645\u0634\u0627\u0643\u0644 \u0639\u0635\u0628\u064a\u0629 \u064a\u0645\u0643\u0646 \u0623\u0646 \u062a\u0624\u062b\u0631 \u0639\u0644\u0649 \u0627\u0644\u062a\u062d\u0643\u0645 \u0641\u064a \u0627\u0644\u0646\u0637\u0642 \u0648\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0639\u0636\u0644\u0627\u062a."
+                }
+            ],
+            "recommendations_en": [
+                {
+                    "recommendation": "Begin targeted speech therapy focusing on muscle coordination and control.",
+                    "priority": "Top",
+                    "tips": [
+                        "Use exercises to improve oral motor skills.",
+                        "Incorporate rhythm and pacing activities."
+                    ],
+                    "resources_or_links": [
+                        "https://www.asha.org/public/speech/disorders/dysarthria/"
+                    ]
+                },
+                {
+                    "recommendation": "Monitor the child's progress with follow-up assessments.",
+                    "priority": "Normal",
+                    "tips": [
+                        "Regularly assess speech rate and clarity.",
+                        "Adjust therapy activities based on progress."
+                    ],
+                    "resources_or_links": []
+                },
+                {
+                    "recommendation": "Engage parents with home activities to support therapy goals.",
+                    "priority": "Normal",
+                    "tips": [
+                        "Practice articulation exercises together.",
+                        "Encourage reading aloud to improve clarity."
+                    ],
+                    "resources_or_links": []
+                }
+            ],
+            "recommendations_ar": [
+                {
+                    "recommendation": "\u0627\u0628\u062f\u0623 \u0628\u0639\u0644\u0627\u062c \u0627\u0644\u0646\u0637\u0642 \u0627\u0644\u0645\u0633\u062a\u0647\u062f\u0641 \u0644\u0644\u062a\u0631\u0643\u064a\u0632 \u0639\u0644\u0649 \u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0639\u0636\u0644\u0627\u062a \u0648\u0627\u0644\u062a\u062d\u0643\u0645 \u0641\u064a\u0647\u0627.",
+                    "priority": "\u0639\u0627\u0644\u064a",
+                    "tips": [
+                        "\u0627\u0633\u062a\u062e\u062f\u0645 \u062a\u0645\u0627\u0631\u064a\u0646 \u0644\u062a\u062d\u0633\u064a\u0646 \u0645\u0647\u0627\u0631\u0627\u062a \u0627\u0644\u0641\u0645 \u0627\u0644\u062d\u0631\u0643\u064a\u0629.",
+                        "\u0627\u062e\u062a\u0631 \u0623\u0646\u0634\u0637\u0629 \u062a\u062a\u0636\u0645\u0646 \u0627\u0644\u0625\u064a\u0642\u0627\u0639 \u0648\u0627\u0644\u062a\u062d\u0643\u0645 \u0641\u064a \u0627\u0644\u0633\u0631\u0639\u0629."
+                    ],
+                    "resources_or_links": [
+                        "https://www.asha.org/public/speech/disorders/dysarthria/"
+                    ]
+                },
+                {
+                    "recommendation": "\u0631\u0627\u0642\u0628 \u062a\u0642\u062f\u0645 \u0627\u0644\u0637\u0641\u0644\u0629 \u0645\u0646 \u062e\u0644\u0627\u0644 \u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a \u0627\u0644\u0645\u062a\u0639\u0627\u0642\u0628\u0629.",
+                    "priority": "\u0639\u0627\u062f\u064a",
+                    "tips": [
+                        "\u0642\u0645 \u0628\u062a\u0642\u064a\u064a\u0645 \u0645\u0639\u062f\u0644 \u0648\u0648\u0636\u0648\u062d \u0627\u0644\u0643\u0644\u0627\u0645 \u0628\u0627\u0646\u062a\u0638\u0627\u0645.",
+                        "\u0642\u0645 \u0628\u062a\u0639\u062f\u064a\u0644 \u0623\u0646\u0634\u0637\u0629 \u0627\u0644\u0639\u0644\u0627\u062c \u0628\u0646\u0627\u0621\u064b \u0639\u0644\u0649 \u0627\u0644\u062a\u0642\u062f\u0645."
+                    ],
+                    "resources_or_links": []
+                },
+                {
+                    "recommendation": "\u0625\u0634\u0631\u0627\u0643 \u0627\u0644\u0622\u0628\u0627\u0621 \u0628\u0623\u0646\u0634\u0637\u0629 \u0645\u0646\u0632\u0644\u064a\u0629 \u0644\u062f\u0639\u0645 \u0623\u0647\u062f\u0627\u0641 \u0627\u0644\u0639\u0644\u0627\u062c.",
+                    "priority": "\u0639\u0627\u062f\u064a",
+                    "tips": [
+                        "\u0645\u0627\u0631\u0633\u0648\u0627 \u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u0646\u0637\u0642 \u0645\u0639\u0627\u064b.",
+                        "\u0634\u062c\u0639\u0648\u0627 \u0639\u0644\u0649 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0628\u0635\u0648\u062a \u0639\u0627\u0644\u064d \u0644\u062a\u062d\u0633\u064a\u0646 \u0627\u0644\u0648\u0636\u0648\u062d."
+                    ],
+                    "resources_or_links": []
+                }
+            ],
+            "references_and_resources_links": [
+                "https://www.asha.org/public/speech/disorders/dysarthria/"
+            ]
+        }
+    }
+]
