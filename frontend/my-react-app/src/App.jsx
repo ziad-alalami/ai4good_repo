@@ -301,7 +301,7 @@ const AnalysisPage = ({ onRestart, analysis }) => {
   const chatEndRef = useRef(null);
   
   const isArabic = language === 'ar';
-  const data = analysis?.data;
+  const data = analysis;
 
   useEffect(() => {
     if (chatEndRef.current) {
@@ -318,11 +318,11 @@ const AnalysisPage = ({ onRestart, analysis }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/chatbot', {
+      const response = await fetch('http://localhost:5000/chatbot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          uuid: analysis.id,
+          uuid: analysis.data.id,
           message: inputMessage
         })
       });
@@ -330,7 +330,8 @@ const AnalysisPage = ({ onRestart, analysis }) => {
       const responseData = await response.json();
       
       if (response.ok) {
-        setMessages(prev => [...prev, { role: 'assistant', content: responseData.data }]);
+        console.log("mes", responseData.data)
+        setMessages(prev => [...prev, { role: 'assistant', content: responseData.data.response }]);
       } else {
         setMessages(prev => [...prev, { 
           role: 'assistant', 
@@ -357,12 +358,12 @@ const AnalysisPage = ({ onRestart, analysis }) => {
       </div>
     );
   }
-  console.log("aa", data);
-  const overview = isArabic ? data.overview_ar : data.overview_en;
-  const disorders = isArabic ? data.disorders_ar : data.disorders_en;
-  const recommendations = isArabic ? data.recommendations_ar : data.recommendations_en;
-  const rootCauses = isArabic ? data.root_causes_ar : data.root_causes_en;
-  const speechRateComp = isArabic ? data.speech_rate_comparison_ar : data.speech_rate_comparison_en;
+  console.log("aa", analysis);
+  const overview = isArabic ? analysis.data.agent_response.overview_ar : analysis.data.agent_response.overview_en;
+  const disorders = isArabic ? analysis.data.agent_response.disorders_ar : analysis.data.agent_response.disorders_en;
+  const recommendations = isArabic ? analysis.data.agent_response.recommendations_ar : analysis.data.agent_response.recommendations_en;
+  const rootCauses = isArabic ? analysis.data.agent_response.root_causes_ar : analysis.data.agent_response.root_causes_en;
+  const speechRateComp = isArabic ? analysis.data.agent_response.speech_rate_comparison_ar : analysis.data.agent_response.speech_rate_comparison_en;
 
   const metrics = [
     { 
@@ -382,7 +383,7 @@ const AnalysisPage = ({ onRestart, analysis }) => {
     },
     { 
       label: isArabic ? 'حالة المعدل' : 'Rate Status', 
-      value: data.speech_rate_severity,
+      value: analysis.data.agent_response.speech_rate_severity,
       unit: ''
     },
   ];

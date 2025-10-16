@@ -22,5 +22,158 @@
     "choices_list_en": [],
     "choices_list_ar": [],
     "category": "general_background"
+  },
+  "3": {
+    "question_en": "Do you sometimes find it hard to say some words or sounds?",
+    "question_ar": "هل تجد أحيانًا صعوبة في قول بعض الكلمات أو الأصوات؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes", "No", "Sometimes"],
+    "choices_list_ar": ["نعم", "لا", "أحيانًا"],
+    "category": "speech_specific"
+  },
+  "4": {
+    "question_en": "Are there certain words that are tricky for you to say?",
+    "question_ar": "هل هناك كلمات معينة يصعب عليك نطقها؟",
+    "format": "text",
+    "choices_list_en": [],
+    "choices_list_ar": [],
+    "category": "speech_specific"
+  },
+  "5": {
+    "question_en": "Do people ever ask you to repeat what you said?",
+    "question_ar": "هل يطلب منك الناس أحيانًا أن تكرر ما قلته؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes, a lot", "Sometimes", "Not really"],
+    "choices_list_ar": ["نعم، كثيرًا", "أحيانًا", "ليس كثيرًا"],
+    "category": "speech_specific"
+  },
+  "6": {
+    "question_en": "Is it harder to talk when you're tired or upset?",
+    "question_ar": "هل يصبح الكلام أصعب عندما تكون متعبًا أو منزعجًا؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes", "No", "Sometimes"],
+    "choices_list_ar": ["نعم", "لا", "أحيانًا"],
+    "category": "speech_specific"
+  },
+  "7": {
+    "question_en": "Do you go to school or stay at home?",
+    "question_ar": "هل تذهب إلى المدرسة أم تبقى في المنزل؟",
+    "format": "choice-one",
+    "choices_list_en": ["I go to school", "I stay at home", "Other"],
+    "choices_list_ar": ["أذهب إلى المدرسة", "أبقى في المنزل", "أخرى"],
+    "category": "general_background"
+  },
+  "8": {
+    "question_en": "What is your favorite subject or thing to do at school?",
+    "question_ar": "ما هو موضوعك المفضل أو الشيء الذي تحب فعله في المدرسة؟",
+    "format": "text",
+    "choices_list_en": [],
+    "choices_list_ar": [],
+    "category": "psychology"
+  },
+  "9": {
+    "question_en": "Who do you live with at home?",
+    "question_ar": "مع من تعيش في المنزل؟",
+    "format": "text",
+    "choices_list_en": [],
+    "choices_list_ar": [],
+    "category": "psychology"
+  },
+  "10": {
+    "question_en": "Do you like talking to your friends or classmates?",
+    "question_ar": "هل تحب التحدث مع أصدقائك أو زملائك في الصف؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes, a lot!", "Sometimes", "Not really"],
+    "choices_list_ar": ["نعم، كثيرًا!", "أحيانًا", "ليس كثيرًا"],
+    "category": "psychology"
+  },
+  "11": {
+    "question_en": "How do you feel when you talk in front of people?",
+    "question_ar": "كيف تشعر عندما تتحدث أمام الناس؟",
+    "format": "choice-one",
+    "choices_list_en": ["Happy", "Shy", "Scared", "Okay", "Other"],
+    "choices_list_ar": ["سعيد", "خجول", "خائف", "عادي", "أخرى"],
+    "category": "psychology"
+  },
+  "12": {
+    "question_en": "What makes you feel happy?",
+    "question_ar": "ما الذي يجعلك تشعر بالسعادة؟",
+    "format": "text",
+    "choices_list_en": [],
+    "choices_list_ar": [],
+    "category": "psychology"
+  },
+  "13": {
+    "question_en": "What makes you feel scared or sad sometimes?",
+    "question_ar": "ما الذي يجعلك تشعر بالخوف أو الحزن أحيانًا؟",
+    "format": "text",
+    "choices_list_en": [],
+    "choices_list_ar": [],
+    "category": "psychology"
+  },
+  "14": {
+    "question_en": "Has your child ever had any illnesses, injuries, or speech difficulties?",
+    "question_ar": "هل عانى طفلك من أمراض أو إصابات أو صعوبات في النطق من قبل؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes", "No", "Not sure"],
+    "choices_list_ar": ["نعم", "لا", "لست متأكدًا"],
+    "category": "guardian_medical"
+  },
+  "15": {
+    "question_en": "Has your child’s speech changed recently or been the same since early childhood?",
+    "question_ar": "هل تغير كلام طفلك مؤخرًا أم كان دائمًا على نفس الحال منذ الطفولة؟",
+    "format": "choice-one",
+    "choices_list_en": ["Changed recently", "Always been like this", "Not sure"],
+    "choices_list_ar": ["تغير مؤخرًا", "دائمًا هكذا", "لست متأكدًا"],
+    "category": "guardian_medical"
+  },
+  "16": {
+    "question_en": "Does your child have any trouble being understood by others?",
+    "question_ar": "هل يجد الآخرون صعوبة في فهم كلام طفلك؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes, often", "Sometimes", "Rarely", "Never"],
+    "choices_list_ar": ["نعم، كثيرًا", "أحيانًا", "نادرًا", "أبدًا"],
+    "category": "guardian_speech"
+  },
+  "17": {
+    "question_en": "Does your child seem shy or frustrated when trying to speak?",
+    "question_ar": "هل يبدو طفلك خجولًا أو محبطًا عندما يحاول التحدث؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes", "No", "Sometimes"],
+    "choices_list_ar": ["نعم", "لا", "أحيانًا"],
+    "category": "guardian_psychology"
+  },
+  "18": {
+    "question_en": "How does your child usually feel at home or school?",
+    "question_ar": "كيف يشعر طفلك عادة في المنزل أو المدرسة؟",
+    "format": "choice-one",
+    "choices_list_en": ["Happy and social", "Quiet and shy", "Easily upset", "Varies"],
+    "choices_list_ar": ["سعيد واجتماعي", "هادئ وخجول", "ينزعج بسهولة", "يتغير حسب الحالة"],
+    "category": "guardian_psychology"
+  },
+  "19": {
+    "question_en": "Does your child show any unusual behaviors, movements, or habits?",
+    "question_ar": "هل يُظهر طفلك أي تصرفات أو حركات أو عادات غير عادية؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes", "No", "Sometimes"],
+    "choices_list_ar": ["نعم", "لا", "أحيانًا"],
+    "category": "guardian_psychology"
+  },
+  "20": {
+    "question_en": "Has your child ever received therapy or special support for speech or emotional issues?",
+    "question_ar": "هل تلقى طفلك علاجًا أو دعمًا خاصًا لمشاكل في النطق أو المشاعر؟",
+    "format": "choice-one",
+    "choices_list_en": ["Yes", "No", "Not sure"],
+    "choices_list_ar": ["نعم", "لا", "لست متأكدًا"],
+    "category": "guardian_psychology"
+  },
+  "21" : {
+    "question_en": "Does your child have any diagnosed mental / psychological disorders? Does he have any irregular social and mental symptoms?",
+    "question_ar": "هل يعاني ابنك او ابنتك من أي اضطرابات نفسية او اجتماعية؟ هل هناك أي اعراض نفسية او اجتماعية غريبة لاحظتها عليه أو عليها؟",
+    "format": "text",
+    "choices_list_en": [],
+    "choices_list_ar": [],
+    "answer": "لا لكنه انطوائي لا يحب العلاقات وليس لديه اصدقاء كثر",
+    "category": "guardian_psychology" 
   }
 }
