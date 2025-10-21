@@ -93,7 +93,7 @@ def upload():
         abort(400, description = "Could not extract phonemes from provided text.") 
     
     #dysarthria_prob = predict(get_audio_path(request_id), gender= gender)
-    dysarthria_prob = 0.85
+    dysarthria_prob = 0.0431
 
     data['speech_rate'] = speech_rate
     data['phoneme_rate'] = phoneme_rate
