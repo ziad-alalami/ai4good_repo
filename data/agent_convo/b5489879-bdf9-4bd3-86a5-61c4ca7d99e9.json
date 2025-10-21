@@ -1,0 +1,145 @@
+[
+    {
+        "agent": {
+            "overview_en": "Based on the provided data, the child is a 20-year-old male who is bilingual (Arabic and English) and exhibits a high dysarthria probability score. He has a high speech rate but also shows signs of shyness and limited social interactions, compounded by a recent change in circumstances.",
+            "overview_ar": "\u0628\u0646\u0627\u0621\u064b \u0639\u0644\u0649 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u0642\u062f\u0645\u0629\u060c \u0627\u0644\u0637\u0641\u0644 \u0630\u0643\u0631 \u0639\u0645\u0631\u0647 20 \u0639\u0627\u0645\u064b\u0627\u060c \u062b\u0646\u0627\u0626\u064a \u0627\u0644\u0644\u063a\u0629 (\u0627\u0644\u0639\u0631\u0628\u064a\u0629 \u0648\u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629)\u060c \u0648\u064a\u0638\u0647\u0631 \u0627\u062d\u062a\u0645\u0627\u0644\u0627\u064b \u0639\u0627\u0644\u064a\u064b\u0627 \u0644\u0644\u0625\u0635\u0627\u0628\u0629 \u0628\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638. \u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645\u0647 \u0645\u0631\u062a\u0641\u0639 \u0648\u0644\u0643\u0646\u0647 \u064a\u0628\u062f\u0648 \u062e\u062c\u0648\u0644\u0627\u064b \u0648\u0644\u062f\u064a\u0647 \u062a\u0641\u0627\u0639\u0644 \u0627\u062c\u062a\u0645\u0627\u0639\u064a \u0645\u062d\u062f\u0648\u062f\u060c \u0645\u0645\u0627 \u064a\u0641\u0627\u0642\u0645\u0647 \u062a\u063a\u064a\u0631 \u0641\u064a \u0627\u0644\u0638\u0631\u0648\u0641 \u0645\u0624\u062e\u0631\u064b\u0627.",
+            "avg_class_wpm": 170.0,
+            "speech_rate_comparison_en": "The child's speech rate of approximately 175 WPM is slightly above the average WPM (170) for 20-year-old males. This is considered normal, although it might contribute to possible articulation issues given the high rate and the context of a high dysarthria probability.",
+            "speech_rate_comparison_ar": "\u0645\u0639\u062f\u0644 \u0627\u0644\u0643\u0644\u0627\u0645 \u0644\u0644\u0637\u0641\u0644 \u062d\u0648\u0627\u0644\u064a 175 \u0643\u0644\u0645\u0629 \u0641\u064a \u0627\u0644\u062f\u0642\u064a\u0642\u0629\u060c \u0648\u0647\u0648 \u0623\u0639\u0644\u0649 \u0642\u0644\u064a\u0644\u0627\u064b \u0645\u0646 \u0627\u0644\u0645\u0639\u062f\u0644 \u0627\u0644\u0648\u0633\u0637\u064a (170) \u0644\u0644\u0630\u0643\u0648\u0631 \u0628\u0639\u0645\u0631 20 \u0639\u0627\u0645\u064b\u0627. \u064a\u064f\u0639\u062a\u0628\u0631 \u0630\u0644\u0643 \u0637\u0628\u064a\u0639\u064a\u064b\u0627\u060c \u0639\u0644\u0649 \u0627\u0644\u0631\u063a\u0645 \u0645\u0646 \u0623\u0646\u0647 \u0642\u062f \u064a\u0633\u0627\u0647\u0645 \u0641\u064a \u0645\u0634\u0643\u0644\u0627\u062a \u0627\u0644\u0646\u0637\u0642 \u0627\u0644\u0645\u062d\u062a\u0645\u0644\u0629 \u0646\u0638\u0631\u064b\u0627 \u0644\u0645\u0639\u062f\u0644 \u0627\u0644\u0633\u0631\u0639\u0629 \u0627\u0644\u0639\u0627\u0644\u064a \u0648\u0627\u062d\u062a\u0645\u0627\u0644 \u0643\u0628\u064a\u0631 \u0644\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638.",
+            "speech_rate_severity": "Higher than average (Good)",
+            "disorders_en": [
+                {
+                    "disorder_name": "Dysarthria",
+                    "disorder_symptoms": [
+                        "High dysarthria probability",
+                        "High speech rate"
+                    ],
+                    "disorder_pointers": [
+                        "The dysarthria probability score is 0.85, which is significantly high, suggesting motor speech disorder."
+                    ],
+                    "disorder_lying_causes": [
+                        "Potential neurological issues given the high probability score",
+                        "Bilingualism might contribute to complexity in speech articulation."
+                    ]
+                }
+            ],
+            "disorders_ar": [
+                {
+                    "disorder_name": "\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638",
+                    "disorder_symptoms": [
+                        "\u0627\u062d\u062a\u0645\u0627\u0644\u064a\u0629 \u0639\u0627\u0644\u064a\u0629 \u0644\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638",
+                        "\u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u0645\u0631\u062a\u0641\u0639"
+                    ],
+                    "disorder_pointers": [
+                        "\u0627\u062d\u062a\u0645\u0627\u0644\u064a\u0629 \u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638 \u0647\u064a 0.85\u060c \u0648\u0647\u0630\u0627 \u064a\u0639\u062a\u0628\u0631 \u0645\u0631\u062a\u0641\u0639\u064b\u0627 \u0628\u0634\u0643\u0644 \u0643\u0628\u064a\u0631 \u0645\u0645\u0627 \u064a\u0634\u064a\u0631 \u0625\u0644\u0649 \u0627\u0636\u0637\u0631\u0627\u0628 \u0641\u064a \u062d\u0631\u0643\u0627\u062a \u0627\u0644\u0646\u0637\u0642."
+                    ],
+                    "disorder_lying_causes": [
+                        "\u0648\u062c\u0648\u062f \u0645\u0634\u0643\u0644\u0627\u062a \u0639\u0635\u0628\u064a\u0629 \u0645\u062d\u062a\u0645\u0644\u0629 \u0646\u0638\u0631\u064b\u0627 \u0644\u0644\u0627\u062d\u062a\u0645\u0627\u0644\u064a\u0629 \u0627\u0644\u0645\u0631\u062a\u0641\u0639\u0629",
+                        "\u0642\u062f \u062a\u0633\u0627\u0647\u0645 \u0627\u0644\u062b\u0646\u0627\u0626\u064a\u0629 \u0627\u0644\u0644\u063a\u0648\u064a\u0629 \u0641\u064a \u062a\u0639\u0642\u064a\u062f \u0627\u0644\u0646\u0637\u0642."
+                    ]
+                }
+            ],
+            "root_causes_en": [
+                {
+                    "cause": "Bilingual environment",
+                    "explanation": "The child is raised in a bilingual environment, which can affect speech articulation complexity due to constant switching between languages."
+                },
+                {
+                    "cause": "Shyness and limited interaction",
+                    "explanation": "Being shy and staying mostly at home with limited interaction can reduce opportunities for practicing speech, potentially affecting fluency."
+                },
+                {
+                    "cause": "Anxiety or emotional distress",
+                    "explanation": "Recent changes in behavior and emotional state may be causing stress, affecting speech patterns and increasing dysarthria risk."
+                }
+            ],
+            "root_causes_ar": [
+                {
+                    "cause": "\u0627\u0644\u0628\u064a\u0626\u0629 \u062b\u0646\u0627\u0626\u064a\u0629 \u0627\u0644\u0644\u063a\u0629",
+                    "explanation": "\u064a\u0639\u064a\u0634 \u0627\u0644\u0637\u0641\u0644 \u0641\u064a \u0628\u064a\u0626\u0629 \u062b\u0646\u0627\u0626\u064a\u0629 \u0627\u0644\u0644\u063a\u0629\u060c \u0645\u0645\u0627 \u064a\u0645\u0643\u0646 \u0623\u0646 \u064a\u0624\u062b\u0631 \u0639\u0644\u0649 \u062a\u0639\u0642\u064a\u062f \u0627\u0644\u0646\u0637\u0642 \u0628\u0633\u0628\u0628 \u0627\u0644\u062a\u0628\u062f\u064a\u0644 \u0627\u0644\u0645\u0633\u062a\u0645\u0631 \u0628\u064a\u0646 \u0627\u0644\u0644\u063a\u0627\u062a."
+                },
+                {
+                    "cause": "\u0627\u0644\u062e\u062c\u0644 \u0648\u0627\u0644\u062a\u0641\u0627\u0639\u0644 \u0627\u0644\u0645\u062d\u062f\u0648\u062f",
+                    "explanation": "\u0643\u0648\u0646\u0647 \u062e\u062c\u0648\u0644\u0627\u064b \u0648\u064a\u0628\u0642\u0649 \u0641\u064a \u0627\u0644\u0645\u0646\u0632\u0644 \u0645\u0639 \u062a\u0641\u0627\u0639\u0644 \u0645\u062d\u062f\u0648\u062f \u064a\u0645\u0643\u0646 \u0623\u0646 \u064a\u0642\u0644\u0644 \u0645\u0646 \u0641\u0631\u0635 \u0645\u0645\u0627\u0631\u0633\u0629 \u0627\u0644\u0643\u0644\u0627\u0645\u060c \u0645\u0645\u0627 \u064a\u0624\u062b\u0631 \u0639\u0644\u0649 \u0627\u0644\u0637\u0644\u0627\u0642\u0629."
+                },
+                {
+                    "cause": "\u0627\u0644\u0642\u0644\u0642 \u0623\u0648 \u0627\u0644\u0636\u063a\u0637 \u0627\u0644\u0639\u0627\u0637\u0641\u064a",
+                    "explanation": "\u0627\u0644\u062a\u063a\u064a\u0631\u0627\u062a \u0627\u0644\u0623\u062e\u064a\u0631\u0629 \u0641\u064a \u0627\u0644\u0633\u0644\u0648\u0643 \u0648\u0627\u0644\u062d\u0627\u0644\u0629 \u0627\u0644\u0639\u0627\u0637\u0641\u064a\u0629 \u0642\u062f \u062a\u0633\u0628\u0628 \u0636\u063a\u0637\u0627\u064b \u064a\u0624\u062b\u0631 \u0639\u0644\u0649 \u0623\u0646\u0645\u0627\u0637 \u0627\u0644\u0643\u0644\u0627\u0645 \u0648\u064a\u0632\u064a\u062f \u0645\u0646 \u062e\u0637\u0631 \u0627\u0644\u0625\u0635\u0627\u0628\u0629 \u0628\u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638."
+                }
+            ],
+            "recommendations_en": [
+                {
+                    "recommendation": "Prioritize Dysarthria Assessment",
+                    "priority": "Top",
+                    "tips": [
+                        "Conduct a detailed motor speech assessment to confirm dysarthria diagnosis.",
+                        "Focus on exercises to improve control of speech muscles."
+                    ],
+                    "resources_or_links": [
+                        "https://www.asha.org/public/speech/disorders/Dysarthria/"
+                    ]
+                },
+                {
+                    "recommendation": "Encourage Structured Social Interaction",
+                    "priority": "Normal",
+                    "tips": [
+                        "Incorporate social skills training to reduce shyness.",
+                        "Create a supportive environment for practicing both languages."
+                    ],
+                    "resources_or_links": [
+                        "https://www.socialthinking.com/"
+                    ]
+                },
+                {
+                    "recommendation": "Introduce Relaxation Techniques",
+                    "priority": "Normal",
+                    "tips": [
+                        "Engage in activities that reduce anxiety, such as mindfulness or breathing exercises to improve ease of speech."
+                    ],
+                    "resources_or_links": [
+                        "https://childmind.org/article/ways-to-help-kids-who-are-too-shy-to-speak/"
+                    ]
+                }
+            ],
+            "recommendations_ar": [
+                {
+                    "recommendation": "\u0625\u0639\u0637\u0627\u0621 \u0627\u0644\u0623\u0648\u0644\u0648\u064a\u0629 \u0644\u062a\u0642\u064a\u064a\u0645 \u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638",
+                    "priority": "\u0639\u0627\u0644\u064a",
+                    "tips": [
+                        "\u0625\u062c\u0631\u0627\u0621 \u062a\u0642\u064a\u064a\u0645 \u062a\u0641\u0635\u064a\u0644\u064a \u0644\u062d\u0631\u0643\u0627\u062a \u0627\u0644\u0646\u0637\u0642 \u0644\u062a\u0623\u0643\u064a\u062f \u062a\u0634\u062e\u064a\u0635 \u0639\u0633\u0631 \u0627\u0644\u062a\u0644\u0641\u0638.",
+                        "\u0627\u0644\u062a\u0631\u0643\u064a\u0632 \u0639\u0644\u0649 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0644\u062a\u062d\u0633\u064a\u0646 \u0627\u0644\u062a\u062d\u0643\u0645 \u0641\u064a \u0639\u0636\u0644\u0627\u062a \u0627\u0644\u0643\u0644\u0627\u0645."
+                    ],
+                    "resources_or_links": [
+                        "https://www.asha.org/public/speech/disorders/Dysarthria/"
+                    ]
+                },
+                {
+                    "recommendation": "\u062a\u0634\u062c\u064a\u0639 \u0627\u0644\u062a\u0641\u0627\u0639\u0644 \u0627\u0644\u0627\u062c\u062a\u0645\u0627\u0639\u064a \u0627\u0644\u0647\u064a\u0643\u0644\u064a",
+                    "priority": "\u0639\u0627\u062f\u064a",
+                    "tips": [
+                        "\u062f\u0645\u062c \u062a\u062f\u0631\u064a\u0628 \u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a \u0627\u0644\u0627\u062c\u062a\u0645\u0627\u0639\u064a\u0629 \u0644\u0644\u062d\u062f \u0645\u0646 \u0627\u0644\u062e\u062c\u0644.",
+                        "\u062e\u0644\u0642 \u0628\u064a\u0626\u0629 \u062f\u0627\u0639\u0645\u0629 \u0644\u0645\u0645\u0627\u0631\u0633\u0629 \u0643\u0644\u0627 \u0627\u0644\u0644\u063a\u062a\u064a\u0646."
+                    ],
+                    "resources_or_links": [
+                        "https://www.socialthinking.com/"
+                    ]
+                },
+                {
+                    "recommendation": "\u062a\u0642\u062f\u064a\u0645 \u062a\u0642\u0646\u064a\u0627\u062a \u0627\u0644\u0627\u0633\u062a\u0631\u062e\u0627\u0621",
+                    "priority": "\u0639\u0627\u062f\u064a",
+                    "tips": [
+                        "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0623\u0646\u0634\u0637\u0629 \u062a\u0642\u0644\u0644 \u0627\u0644\u0642\u0644\u0642 \u0645\u062b\u0644 \u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u064a\u0642\u0638\u0629 \u0623\u0648 \u0627\u0644\u062a\u0646\u0641\u0633 \u0644\u062a\u062d\u0633\u064a\u0646 \u0633\u0647\u0648\u0644\u0629 \u0627\u0644\u0643\u0644\u0627\u0645."
+                    ],
+                    "resources_or_links": [
+                        "https://childmind.org/article/ways-to-help-kids-who-are-too-shy-to-speak/"
+                    ]
+                }
+            ],
+            "references_and_resources_links": [
+                "https://www.asha.org/public/speech/disorders/Dysarthria/",
+                "https://www.socialthinking.com/",
+                "https://childmind.org/article/ways-to-help-kids-who-are-too-shy-to-speak/"
+            ]
+        }
+    }
+]

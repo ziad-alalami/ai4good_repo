@@ -8,7 +8,6 @@ dependencies = [
     "librosa>=0.11.0",
     "matplotlib>=3.10.7",
     "pandas>=2.3.3",
-    "torch>=2.8.0",
     "tqdm>=4.67.1",
     "transformers>=4.57.0",
     "dotenv>=0.9.9",
@@ -16,4 +15,5 @@ dependencies = [
     "openai>=2.3.0",
     "phonemizer==3.2.1",
     "pip>=25.2",
+    "flask-cors>=6.0.1",
 ]

@@ -4,22 +4,23 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 from uuid import uuid4, UUID
-
+from flask_cors import CORS
 from utils.text_sampler.text_sampler import sample_text_phoneme
-from utils.storage.storage import save_data, save_audio, get_audio_path
+from utils.storage.storage import save_data, save_audio, get_audio_path, save_audio_wav
 from utils.speech_rate.speech_rate import get_speech_rate, get_phoneme_rate
-#from model.bert.inference import predict
+# from model.bert.inference import predict
 from model.agent.main_agent import get_agent_response
 from model.agent.chatbot import respond
 
 app = Flask(__name__)
+CORS(app)
 
 load_dotenv(override= True)
 question_path = Path(os.environ.get("QUESTIONS_PATH", "./data/background/questions.json"))
 question_json = json.loads(question_path.read_text(encoding= "utf-8"))
 
 
-text_path = Path(os.environ.get("USER_TEXT_FILE", "./data/background/user_text.json"))
+text_path = Path(os.environ.get("USER_TEXT_FILE", "./data/background/questions.json"))
 text_json = json.loads(text_path.read_text(encoding="utf-8"))
 
 
@@ -42,7 +43,7 @@ def request_text():
     if lang not in ["en", "ar"]:
         abort(404, description = f"Language {lang} not in ('en', 'ar')")
     
-    return sample_text_phoneme(lang = lang)
+    return jsonify(sample_text_phoneme(lang = lang))
 
 
 
@@ -50,13 +51,14 @@ def request_text():
 def upload():
 
     """"""
+    # questions_path = Path(os.environ.get("BACKGROUND_ANSWER_STORAGE_DIR", "./data/background/background/")) / "questions.json"
     lang = request.args.get('lang', 'en')
-
+    
     if lang not in ["en", "ar"]:
-        abort(404, description = f"Language {lang} not in ('en', 'ar')")
+        abort(400, description = f"Language {lang} not in ('en', 'ar')")
 
     wav_file = request.files.get('audio_file')
-
+    print(type(wav_file), "_____")
     response = request.form.get('data')
 
     if response is None:
@@ -69,34 +71,38 @@ def upload():
     data = response_json.get('data')
     text = response_json.get('text')
     phonemes = response_json.get('phonemes')
-    gender = data.get('0').get('answer')
+    gender = data.get('0')
 
     if gender.lower() not in ('male', 'female', 'm', 'f','أنثى','ذكر'):
 
-        abort(404, description = f"Gender provided {gender} not in ('male', 'female', 'm', 'f')")
+        abort(400, description = f"Gender provided {gender} not in ('male', 'female', 'm', 'f')")
 
     
     request_id = uuid4()
 
     save_data(uuid = request_id, data = data)
-    save_audio(uuid = request_id, audio_wav = wav_file)
+    save_audio_wav(uuid = request_id, audio_wav = wav_file)
 
     speech_rate = get_speech_rate(wav_file_path= get_audio_path(request_id), text= text)
     phoneme_rate = get_phoneme_rate(wav_file_path= get_audio_path(request_id), phonemes= phonemes)
 
     if speech_rate == 0:
-        abort(404, description = "Text not attached with request")
+        abort(400, description = "Text not attached with request")
     
     if phoneme_rate == 0:
-        abort(404, description = "Could not extract phonemes from provided text.") 
+        abort(400, description = "Could not extract phonemes from provided text.") 
     
     #dysarthria_prob = predict(get_audio_path(request_id), gender= gender)
-    dysarthria_prob = 0.85
+    dysarthria_prob = 0.0431
 
     data['speech_rate'] = speech_rate
     data['phoneme_rate'] = phoneme_rate
     data['dysarthria_prob'] = dysarthria_prob
-
+    
+    questions = question_json
+    for key in questions:
+        questions[key]["answer"] = data[key]
+    
     agent_response = get_agent_response(uuid = request_id, data = data)
     response = {
         "data":

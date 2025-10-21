@@ -5,7 +5,9 @@ import json
 from typing import Dict, List
 from werkzeug.datastructures import FileStorage 
 from uuid import UUID, uuid4
-
+import io
+import wave
+import numpy as np
 
 load_dotenv(override= True)
 
@@ -27,6 +29,27 @@ def save_audio(uuid: UUID, audio_wav: FileStorage) -> bool:
     
     except Exception as e:
         print(f"Exception in saving audio file: {e}")
+        return False
+ 
+def save_audio_wav(uuid: UUID, audio_wav: FileStorage) -> bool:
+    try:
+        audio_file_name = audio_path / f"{uuid}.wav"
+        raw_audio = audio_wav.read()
+
+        # Convert bytes → numpy array (16-bit PCM)
+        audio_data = np.frombuffer(raw_audio, dtype=np.int16)
+
+        # Create a valid .wav file
+        with wave.open(str(audio_file_name), "wb") as wf:
+            wf.setnchannels(1)       # mono
+            wf.setsampwidth(2)       # 16-bit PCM
+            wf.setframerate(16000)   # 16kHz sample rate
+            wf.writeframes(audio_data.tobytes())
+
+        return True
+
+    except Exception as e:
+        print(f"Exception in saving audio wav file: {e}")
         return False
     
 def save_data(uuid: UUID, data: Dict[str, str]) -> bool:

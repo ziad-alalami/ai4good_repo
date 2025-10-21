@@ -217,5 +217,14 @@
             "accepted_msg": true,
             "response": "A speech therapist can provide personalized support that is tailored specifically to Ahmed's needs. They are trained to assess and address various speech and language issues.\n\n**What a Speech Therapist Might Do:**\n1. **Detailed Assessment:** Conduct a comprehensive evaluation to understand the specific challenges Ahmed faces, which can include both speech production and motor skills assessments.\n\n2. **Customized Therapy Plan:** Develop a therapy plan with targeted exercises to improve pronunciation, fluency, and communication skills. This can be especially useful for addressing issues like the 'R' sound difficulty and speech rate delay.\n\n3. **Parent Guidance:** Offer strategies and activities you can incorporate at home to support Ahmed\u2019s progress and confidence in social interactions.\n\n4. **Monitoring Progress:** Track Ahmed's improvements over time and adjust the interventions as needed to ensure effectiveness.\n\nEngaging with a speech therapist ensures a structured approach to addressing both the articulation disorder and any potential neuromuscular or emotional factors, providing Ahmed the support he needs to communicate confidently."
         }
+    },
+    {
+        "user": "Why would I need to go to a speech therapist then what are they going to do?"
+    },
+    {
+        "agent": {
+            "accepted_msg": false,
+            "response": "It seems that this question has already been addressed in the previous response. If you have any more specific questions or need further clarification about the role of a speech therapist, feel free to ask!"
+        }
     }
 ]
