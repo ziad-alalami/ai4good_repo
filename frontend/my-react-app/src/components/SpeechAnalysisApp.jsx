@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mic, MicOff, CheckCircle, Send, Globe, ChevronRight, FileAudio, ClipboardList } from 'lucide-react';
 import AudioRecorder from "react-use-audio-recorder";
 import "react-use-audio-recorder/dist/index.css";
@@ -292,16 +292,18 @@ const RecordingPage = ({ onComplete }) => {
   );
 };
 
-// AssessmentPage Component
+
+
 const AssessmentPage = ({ onComplete }) => {
-  const [questions, setQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
+  const [questionsByCategory, setQuestionsByCategory] = useState({});
+  const [categories, setCategories] = useState([]);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
+  const [categoryAnswers, setCategoryAnswers] = useState({});
+  const [allAnswers, setAllAnswers] = useState({});
   const [language, setLanguage] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [textAnswer, setTextAnswer] = useState('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchQuestions = async () => {
       try {
         const res = await fetch('http://localhost:5000/questions');
@@ -311,7 +313,19 @@ const AssessmentPage = ({ onComplete }) => {
           id,
           ...q
         }));
-        setQuestions(questionsArray);
+        
+        let questionsFormed = {};
+        for (let i = 0; i < questionsArray.length; i++) {
+          let category = questionsArray[i].category;
+          if (category in questionsFormed) {
+            questionsFormed[category].push(questionsArray[i]);
+          } else {
+            questionsFormed[category] = [questionsArray[i]];
+          }
+        }
+        
+        setQuestionsByCategory(questionsFormed);
+        setCategories(Object.keys(questionsFormed));
       } catch (err) {
         console.error('Error fetching questions:', err);
       } finally {
@@ -323,42 +337,48 @@ const AssessmentPage = ({ onComplete }) => {
   }, []);
 
   const getCategoryInfo = () => {
-    if (!questions[currentQuestion]) return null;
-    const category = questions[currentQuestion].category;
-    const categoryQuestions = questions.filter(q => q.category === category);
-    const currentInCategory = categoryQuestions.findIndex(
-      q => q.id === questions[currentQuestion].id
-    ) + 1;
+    if (categories.length === 0) return null;
+    const currentCategory = categories[currentCategoryIndex];
     
     return {
-      category,
-      current: currentInCategory,
-      total: categoryQuestions.length,
-      displayName: category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+      category: currentCategory,
+      displayName: currentCategory.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      categoryNumber: currentCategoryIndex + 1,
+      totalCategories: categories.length
     };
   };
 
-  const handleAnswer = (value) => {
-    const newAnswers = { ...answers, [currentQuestion]: value };
-    setAnswers(newAnswers);
-    setTextAnswer('');
+  const handleAnswerChange = (questionId, value) => {
+    setCategoryAnswers({
+      ...categoryAnswers,
+      [questionId]: value
+    });
+  };
 
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+  const handleCategorySubmit = () => {
+    const currentCategory = categories[currentCategoryIndex];
+    const categoryQuestions = questionsByCategory[currentCategory] || [];
+    
+    // Check if all questions in category are answered
+    const allAnswered = categoryQuestions.every(q => categoryAnswers[q.id]);
+    
+    if (!allAnswered) {
+      alert(language === 'en' 
+        ? 'Please answer all questions before continuing.' 
+        : 'يرجى الإجابة على جميع الأسئلة قبل المتابعة.');
+      return;
+    }
+
+    // Save answers
+    const newAllAnswers = { ...allAnswers, ...categoryAnswers };
+    setAllAnswers(newAllAnswers);
+    setCategoryAnswers({});
+
+    // Move to next category or complete
+    if (currentCategoryIndex < categories.length - 1) {
+      setCurrentCategoryIndex(currentCategoryIndex + 1);
     } else {
-      onComplete({ answers: newAnswers, language });
-    }
-  };
-
-  const handleTextSubmit = () => {
-    if (textAnswer.trim()) {
-      handleAnswer(textAnswer);
-    }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && textAnswer.trim()) {
-      handleTextSubmit();
+      onComplete({ answers: newAllAnswers, language });
     }
   };
 
@@ -406,7 +426,7 @@ const AssessmentPage = ({ onComplete }) => {
 
   if (loading) {
     return (
-      <div className="pt-24 text-center">
+      <div className="min-h-screen flex items-center justify-center px-4">
         <p className="text-lg text-gray-600">
           {language === 'en' ? 'Loading questions...' : 'جاري تحميل الأسئلة...'}
         </p>
@@ -414,97 +434,124 @@ const AssessmentPage = ({ onComplete }) => {
     );
   }
 
-  if (!questions.length) {
+  if (categories.length === 0) {
     return (
-      <div className="pt-24 text-center">
+      <div className="min-h-screen flex items-center justify-center px-4">
         <p className="text-lg text-gray-600">
           {language === 'en' ? 'No questions available' : 'لا توجد أسئلة متاحة'}
         </p>
       </div>
     );
   }
-  
-  const question = questions[currentQuestion];
-  const qText = language === 'en' ? question.question_en : question.question_ar;
-  const choices = language === 'en' ? question.choices_list_en : question.choices_list_ar;
+
+  const currentCategory = categories[currentCategoryIndex];
+  const categoryQuestions = questionsByCategory[currentCategory] || [];
   const categoryInfo = getCategoryInfo();
 
   return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8" dir={language === 'ar' ? 'rtl' : 'ltr'}>
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 to-blue-50" dir={language === 'ar' ? 'rtl' : 'ltr'}>
+      <div className="max-w-4xl mx-auto">
         <div className="mb-8">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-4">
             <h2 className="text-3xl font-bold text-gray-900">
               {language === 'en' ? 'Assessment' : 'التقييم'}
             </h2>
-            <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-              {categoryInfo.displayName}
+            <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-4 py-2 rounded-full">
+              {language === 'en' 
+                ? `Category ${categoryInfo.categoryNumber} of ${categoryInfo.totalCategories}`
+                : `الفئة ${categoryInfo.categoryNumber} من ${categoryInfo.totalCategories}`
+              }
             </span>
           </div>
-          <p className="text-gray-600 mb-2">
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">
+            {categoryInfo.displayName}
+          </h3>
+          <p className="text-gray-600 mb-4">
             {language === 'en' 
-              ? `Question ${categoryInfo.current} of ${categoryInfo.total} in this category`
-              : `السؤال ${categoryInfo.current} من ${categoryInfo.total} في هذه الفئة`
+              ? `Answer all ${categoryQuestions.length} questions in this category`
+              : `أجب على جميع الأسئلة الـ ${categoryQuestions.length} في هذه الفئة`
             }
           </p>
-          <p className="text-sm text-gray-500">
-            {language === 'en' 
-              ? `Overall: ${currentQuestion + 1} of ${questions.length}`
-              : `الإجمالي: ${currentQuestion + 1} من ${questions.length}`
-            }
-          </p>
-          <div className="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-indigo-600 to-blue-600 transition-all duration-500"
-              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+              style={{ width: `${((currentCategoryIndex) / categories.length) * 100}%` }}
             />
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">{qText}</h3>
+        <div className="space-y-6">
+          {categoryQuestions.map((question, idx) => {
+            const qText = language === 'en' ? question.question_en : question.question_ar;
+            const choices = language === 'en' ? question.choices_list_en : question.choices_list_ar;
+            
+            return (
+              <div key={question.id} className="bg-white rounded-2xl shadow-lg p-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <span className="flex-shrink-0 w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-sm">
+                    {idx + 1}
+                  </span>
+                  <h4 className="text-lg font-semibold text-gray-900 flex-1">
+                    {qText}
+                  </h4>
+                </div>
 
-          {question.format === 'text' ? (
-            <div className="space-y-4">
-              <input
-                type="text"
-                placeholder={language === 'en' ? 'Type your answer...' : 'اكتب إجابتك...'}
-                className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-indigo-600 focus:ring focus:ring-indigo-200 focus:outline-none"
-                value={textAnswer}
-                onChange={(e) => setTextAnswer(e.target.value)}
-                onKeyPress={handleKeyPress}
-              />
-              <button
-                onClick={handleTextSubmit}
-                disabled={!textAnswer.trim()}
-                className="w-full p-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                <span>{language === 'en' ? 'Submit Answer' : 'إرسال الإجابة'}</span>
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-          ) : (
-            <div className="space-y-3">
-              {choices.map((option, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleAnswer(option)}
-                  className="w-full p-4 text-left bg-white border-2 border-gray-200 rounded-lg hover:border-indigo-600 hover:bg-indigo-50 transition-all font-semibold text-gray-800 group"
-                  style={{ textAlign: language === 'ar' ? 'right' : 'left' }}
-                >
-                  <div className="flex items-center justify-between">
-                    <span>{option}</span>
-                    <ChevronRight className={`w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition-colors ${language === 'ar' ? 'transform rotate-180' : ''}`} />
+                {question.format === 'text' ? (
+                  <div className="ml-12">
+                    <input
+                      type="text"
+                      placeholder={language === 'en' ? 'Type your answer...' : 'اكتب إجابتك...'}
+                      className="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-indigo-600 focus:ring focus:ring-indigo-200 focus:outline-none"
+                      value={categoryAnswers[question.id] || ''}
+                      onChange={(e) => handleAnswerChange(question.id, e.target.value)}
+                    />
                   </div>
-                </button>
-              ))}
-            </div>
-          )}
+                ) : (
+                  <div className="ml-12 space-y-2">
+                    {choices && choices.map((option, optIdx) => {
+                      const isSelected = categoryAnswers[question.id] === option;
+                      return (
+                        <button
+                          key={optIdx}
+                          onClick={() => handleAnswerChange(question.id, option)}
+                          className={`w-full p-3 text-left rounded-lg font-medium transition-all ${
+                            isSelected
+                              ? 'bg-indigo-600 text-blue-500 border-2 border-indigo-600'
+                              : 'bg-white text-gray-800 border-2 border-gray-200 hover:border-indigo-600 hover:bg-indigo-50'
+                          }`}
+                          style={{ textAlign: language === 'ar' ? 'right' : 'left' }}
+                        >
+                          {option}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-8 flex justify-end">
+          <button
+            onClick={handleCategorySubmit}
+            className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg font-semibold hover:from-indigo-700 hover:to-blue-700 transition-all flex items-center gap-2 shadow-lg"
+          >
+            <span>
+              {currentCategoryIndex < categories.length - 1
+                ? (language === 'en' ? 'Next Category' : 'الفئة التالية')
+                : (language === 'en' ? 'Complete Assessment' : 'إنهاء التقييم')
+              }
+            </span>
+            <ChevronRight className={`w-5 h-5 ${language === 'ar' ? 'transform rotate-180' : ''}`} />
+          </button>
         </div>
       </div>
     </div>
   );
 };
+
+
 
 // Parent Component
 const SpeechAnalysisApp = ( {onComplete} ) => {

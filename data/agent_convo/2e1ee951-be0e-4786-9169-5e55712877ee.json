@@ -1,0 +1,213 @@
+[
+    {
+        "agent": {
+            "overview_en": "Ahmed is a 7-year-old bilingual (English and Arabic) male child. Key data provided include a speech rate of approximately 196.6 words per minute (WPM), a phoneme rate of 2181.3 (exact units unclear), and a high dysarthria probability estimate of 0.85. Critical information is missing regarding phoneme-specific error patterns, intelligibility levels, oral-motor observations, family or educational background, and any medical or developmental history.",
+            "overview_ar": "\u0623\u062d\u0645\u062f \u0637\u0641\u0644 \u064a\u0628\u0644\u063a \u0645\u0646 \u0627\u0644\u0639\u0645\u0631 7 \u0633\u0646\u0648\u0627\u062a\u060c \u062b\u0646\u0627\u0626\u064a \u0627\u0644\u0644\u063a\u0629 (\u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629 \u0648\u0627\u0644\u0639\u0631\u0628\u064a\u0629). \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u062a\u0648\u0641\u0631\u0629 \u062a\u062a\u0636\u0645\u0646 \u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u062d\u0648\u0627\u0644\u064a 196.6 \u0643\u0644\u0645\u0629 \u0641\u064a \u0627\u0644\u062f\u0642\u064a\u0642\u0629\u060c \u0648\u0645\u0639\u062f\u0644 \u0623\u0635\u0648\u0627\u062a (phoneme rate) \u0645\u0642\u062f\u0651\u0631 \u0628\u0640 2181.3 (\u0627\u0644\u0648\u062d\u062f\u0627\u062a \u0627\u0644\u062f\u0642\u064a\u0642\u0629 \u063a\u064a\u0631 \u0648\u0627\u0636\u062d\u0629)\u060c \u0648\u0627\u062d\u062a\u0645\u0627\u0644\u064a\u0629 \u0639\u0627\u0644\u064a\u0629 \u0644\u0644\u062f\u0633\u0623\u062b\u0631\u064a\u0627 \u062a\u0642\u062f\u0631 \u0628\u0640 0.85. \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0627\u0644\u0645\u0641\u0642\u0648\u062f\u0629 \u062a\u0634\u0645\u0644 \u0623\u0646\u0645\u0627\u0637 \u0627\u0644\u0623\u062e\u0637\u0627\u0621 \u0627\u0644\u0641\u0648\u0646\u064a\u0645\u064a\u0629 \u0627\u0644\u0645\u062d\u062f\u062f\u0629\u060c \u0645\u0633\u062a\u0648\u0649 \u0627\u0644\u0641\u0647\u0645 (intelligibility)\u060c \u0645\u0644\u0627\u062d\u0638\u0627\u062a \u0627\u0644\u0641\u0645-\u062d\u0631\u0643\u0629\u060c \u062e\u0644\u0641\u064a\u0627\u062a \u0639\u0627\u0626\u0644\u064a\u0629 \u0623\u0648 \u062a\u0639\u0644\u064a\u0645\u064a\u0629\u060c \u0648\u0623\u064a\u0629 \u062d\u0627\u0644\u0629 \u0637\u0628\u064a\u0629 \u0623\u0648 \u062a\u0637\u0648\u0631\u064a\u0629.",
+            "avg_class_wpm": 149.0,
+            "speech_rate_comparison_en": "Ahmed\u2019s speech rate of approximately 196.6 WPM is well above typical connected speech rates for 7-year-old typically developing children, which average around 149 WPM (SD ~18) ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC6802916/?utm_source=openai)). This places him in a \u201chigher than average (good)\u201d category in terms of speech rate.",
+            "speech_rate_comparison_ar": "\u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u0623\u062d\u0645\u062f \u0627\u0644\u0628\u0627\u0644\u063a \u062d\u0648\u0627\u0644\u064a 196.6 \u0643\u0644\u0645\u0629 \u0641\u064a \u0627\u0644\u062f\u0642\u064a\u0642\u0629 \u0623\u0639\u0644\u0649 \u0628\u0643\u062b\u064a\u0631 \u0645\u0646 \u0627\u0644\u0645\u0639\u062f\u0644 \u0627\u0644\u0637\u0628\u064a\u0639\u064a \u0644\u0644\u0623\u0637\u0641\u0627\u0644 \u0630\u0648\u064a \u0627\u0644\u062a\u0637\u0648\u0631 \u0627\u0644\u0637\u0628\u064a\u0639\u064a \u0628\u0639\u0645\u0631 7 \u0633\u0646\u0648\u0627\u062a\u060c \u0648\u0627\u0644\u0630\u064a \u064a\u064f\u0642\u062f\u0651\u0631 \u0628\u062d\u0648\u0627\u0644\u064a 149 \u0643\u0644\u0645\u0629 \u0641\u064a \u0627\u0644\u062f\u0642\u064a\u0642\u0629 (\u0627\u0644\u0627\u0646\u062d\u0631\u0627\u0641 \u0627\u0644\u0645\u0639\u064a\u0627\u0631\u064a \u062d\u0648\u0627\u0644\u064a 18) ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC6802916/?utm_source=openai)). \u0648\u0647\u0630\u0627 \u064a\u0635\u0646\u0641\u0647 \u0636\u0645\u0646 \u0641\u0626\u0629 \u201c\u0623\u0639\u0644\u0649 \u0645\u0646 \u0627\u0644\u0645\u062a\u0648\u0633\u0637 (\u062c\u064a\u062f)\u201d \u0645\u0646 \u062d\u064a\u062b \u0645\u0639\u062f\u0644 \u0627\u0644\u0643\u0644\u0627\u0645.",
+            "speech_rate_severity": "Higher than average (Good)",
+            "speech_rate_severity_ar": "\u0623\u0639\u0644\u0649 \u0645\u0646 \u0627\u0644\u0645\u062a\u0648\u0633\u0637 (\u0645\u0645\u062a\u0627\u0632)",
+            "disorders_en": [
+                {
+                    "disorder_name": "Possible Dysarthria or Speech Motor Impairment",
+                    "disorder_symptoms": [
+                        "High dysarthria probability (0.85)",
+                        "Speech rate above typical but intelligibility unknown",
+                        "Phoneme rate unusually high"
+                    ],
+                    "disorder_pointers": [
+                        "Automated model predicts 0.85 probability of dysarthria",
+                        "Elevated speech rate may indicate motor planning issues rather than typical speech fluency",
+                        "High phoneme rate suggests rapid articulation, possibly inconsistent or imprecise"
+                    ],
+                    "disorder_lying_causes": [
+                        "Neuromotor control difficulties",
+                        "Speech motor planning or execution deficits",
+                        "Possible hyperkinetic or spastic dysarthric characteristics"
+                    ]
+                }
+            ],
+            "disorders_ar": [
+                {
+                    "disorder_name": "\u0627\u062d\u062a\u0645\u0627\u0644 \u0627\u0644\u062f\u0633\u0623\u062b\u0631\u064a\u0627 \u0623\u0648 \u0627\u0636\u0637\u0631\u0627\u0628 \u0641\u064a \u0627\u0644\u062d\u0631\u0643\u0629 \u0627\u0644\u0643\u0644\u0627\u0645\u064a\u0629",
+                    "disorder_symptoms": [
+                        "\u0627\u062d\u062a\u0645\u0627\u0644\u064a\u0629 \u0639\u0627\u0644\u064a\u0629 \u0644\u0644\u062f\u0633\u0623\u062b\u0631\u064a\u0627 (0.85)",
+                        "\u0645\u0639\u062f\u0644 \u0643\u0644\u0627\u0645 \u0645\u0631\u062a\u0641\u0639 \u0641\u0648\u0642 \u0627\u0644\u0637\u0628\u064a\u0639\u064a \u0648\u0644\u0643\u0646 \u0627\u0644\u0641\u0647\u0645 \u063a\u064a\u0631 \u0645\u0639\u0631\u0648\u0641",
+                        "\u0645\u0639\u062f\u0644 \u0627\u0644\u0623\u0635\u0648\u0627\u062a (phoneme rate) \u0645\u0631\u062a\u0641\u0639 \u0628\u0634\u0643\u0644 \u063a\u064a\u0631 \u0627\u0639\u062a\u064a\u0627\u062f\u064a"
+                    ],
+                    "disorder_pointers": [
+                        "\u0646\u0645\u0648\u0630\u062c \u0622\u0644\u064a \u064a\u062a\u0646\u0628\u0623 \u0628\u0627\u062d\u062a\u0645\u0627\u0644 0.85 \u0644\u0648\u062c\u0648\u062f \u062f\u0633\u0623\u062b\u0631\u064a\u0627",
+                        "\u0645\u0639\u062f\u0644 \u0627\u0644\u0643\u0644\u0627\u0645 \u0627\u0644\u0645\u0631\u062a\u0641\u0639 \u0642\u062f \u064a\u0634\u064a\u0631 \u0625\u0644\u0649 \u0645\u0634\u0643\u0644\u0627\u062a \u0641\u064a \u0627\u0644\u062a\u062e\u0637\u064a\u0637 \u0627\u0644\u062d\u0631\u0643\u064a \u0648\u0644\u064a\u0633 \u0641\u0642\u0637 \u0637\u0644\u0627\u0642\u0629 \u0627\u0644\u0643\u0644\u0627\u0645",
+                        "\u0645\u0639\u062f\u0644 \u0627\u0644\u0623\u0635\u0648\u0627\u062a \u0627\u0644\u0639\u0627\u0644\u064a \u064a\u0648\u062d\u064a \u0628\u0644\u0641\u0638 \u0633\u0631\u064a\u0639\u060c \u0648\u0631\u0628\u0645\u0627 \u063a\u064a\u0631 \u0645\u062a\u0633\u0642 \u0623\u0648 \u063a\u064a\u0631 \u062f\u0642\u064a\u0642"
+                    ],
+                    "disorder_lying_causes": [
+                        "\u0635\u0639\u0648\u0628\u0627\u062a \u0641\u064a \u0627\u0644\u062a\u062d\u0643\u0645 \u0627\u0644\u0639\u0635\u0628\u064a \u0627\u0644\u062d\u0631\u0643\u064a",
+                        "\u0639\u062c\u0632 \u0623\u0648 \u062e\u0644\u0644 \u0641\u064a \u062a\u062e\u0637\u064a\u0637 \u0623\u0648 \u062a\u0646\u0641\u064a\u0630 \u062d\u0631\u0643\u0629 \u0627\u0644\u0643\u0644\u0627\u0645",
+                        "\u062e\u0635\u0627\u0626\u0635 \u0645\u0631\u062a\u0628\u0637\u0629 \u0628\u0627\u0644\u062f\u0633\u0623\u062b\u0631\u064a\u0627 \u0627\u0644\u062d\u0631\u0643\u064a\u0629 \u0645\u062b\u0644 \u0627\u0644\u0632\u064a\u0627\u062f\u0629 \u0627\u0644\u062d\u0631\u0643\u064a\u0629 \u0623\u0648 \u0627\u0644\u062a\u0634\u0646\u062c"
+                    ]
+                }
+            ],
+            "root_causes_en": [
+                {
+                    "cause": "Motor Speech Control Deficit",
+                    "explanation": "High dysarthria probability and elevated speech rate suggest difficulties with neuromotor speech regulation."
+                },
+                {
+                    "cause": "Bilingual Speech Demands",
+                    "explanation": "Growing up bilingually (English and Arabic) may influence phoneme production and rate; compensation could lead to faster speech."
+                },
+                {
+                    "cause": "Lack of Intelligibility Data",
+                    "explanation": "Without intelligibility measures, it's not possible to determine if rapid speech compromises clarity, which would influence root cause assessment."
+                }
+            ],
+            "root_causes_ar": [
+                {
+                    "cause": "\u062e\u0644\u0644 \u0641\u064a \u0627\u0644\u062a\u062d\u0643\u0645 \u0627\u0644\u062d\u0631\u0643\u064a \u0644\u0644\u062d\u062f\u064a\u062b",
+                    "explanation": "\u0627\u0644\u0627\u062d\u062a\u0645\u0627\u0644\u064a\u0629 \u0627\u0644\u0639\u0627\u0644\u064a\u0629 \u0644\u0644\u062f\u0633\u0623\u062b\u0631\u064a\u0627 \u0648\u0645\u0639\u062f\u0644 \u0627\u0644\u0643\u0644\u0627\u0645 \u0627\u0644\u0645\u0631\u062a\u0641\u0639 \u064a\u0634\u064a\u0631\u0627\u0646 \u0625\u0644\u0649 \u0635\u0639\u0648\u0628\u0627\u062a \u0641\u064a \u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u062d\u0631\u0643\u0629 \u0627\u0644\u0639\u0635\u0628\u064a\u0629 \u0644\u0644\u0643\u0644\u0627\u0645."
+                },
+                {
+                    "cause": "\u0645\u062a\u0637\u0644\u0628\u0627\u062a \u0627\u0644\u0643\u0644\u0627\u0645 \u0641\u064a \u0628\u064a\u0626\u0629 \u062b\u0646\u0627\u0626\u064a\u0629 \u0627\u0644\u0644\u063a\u0629",
+                    "explanation": "\u0627\u0644\u0646\u0634\u0623\u0629 \u0641\u064a \u0628\u064a\u0626\u062a\u064a\u0646 \u0644\u063a\u0648\u064a\u0627\u064b (\u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629 \u0648\u0627\u0644\u0639\u0631\u0628\u064a\u0629) \u0642\u062f \u062a\u0624\u062b\u0631 \u0639\u0644\u0649 \u0625\u0646\u062a\u0627\u062c \u0627\u0644\u0641\u0648\u0646\u064a\u0645\u0627\u062a \u0648\u0633\u0631\u0639\u0629 \u0627\u0644\u0643\u0644\u0627\u0645\u061b \u0642\u062f \u064a\u0643\u0648\u0646 \u0627\u0644\u062a\u0639\u0648\u064a\u0636 \u0639\u0646 \u0630\u0644\u0643 \u0628\u0627\u0644\u062d\u062f\u064a\u062b \u0628\u0634\u0643\u0644 \u0623\u0633\u0631\u0639."
+                },
+                {
+                    "cause": "\u063a\u064a\u0627\u0628 \u0642\u064a\u0627\u0633\u0627\u062a \u0627\u0644\u0641\u0647\u0645 (Intelligibility)",
+                    "explanation": "\u0628\u062f\u0648\u0646 \u0642\u064a\u0627\u0633\u0627\u062a \u0644\u0644\u0641\u0647\u0645\u060c \u0644\u0627 \u064a\u0645\u0643\u0646 \u062a\u062d\u062f\u064a\u062f \u0645\u0627 \u0625\u0630\u0627 \u0643\u0627\u0646 \u0627\u0644\u0643\u0644\u0627\u0645 \u0627\u0644\u0633\u0631\u064a\u0639 \u064a\u0624\u062b\u0631 \u0639\u0644\u0649 \u0627\u0644\u0648\u0636\u0648\u062d\u060c \u0645\u0645\u0627 \u064a\u0624\u062b\u0631 \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0633\u0628\u0628 \u0627\u0644\u062c\u0630\u0631\u064a."
+                }
+            ],
+            "recommendations_en": [
+                {
+                    "recommendation": "Obtain intelligibility and phoneme error assessments first",
+                    "priority": "Top",
+                    "tips": [
+                        "Conduct a standardized intelligibility measure with unfamiliar listeners in both languages.",
+                        "Use articulation probes in English and Arabic to document specific phoneme error patterns."
+                    ],
+                    "resources_or_links": [
+                        "ASHA Speech Intelligibility Measures",
+                        "Clinical assessment tools like Goldman-Fristoe Test of Articulation"
+                    ]
+                },
+                {
+                    "recommendation": "Screen oral-motor function",
+                    "priority": "Top",
+                    "tips": [
+                        "Assess strength, coordination, and range of motion of articulators.",
+                        "Observe DDK (diadochokinetic) tasks like /pa-ta-ka/ rate."
+                    ],
+                    "resources_or_links": [
+                        "Oral motor assessment protocols (e.g., oral mechanism exam guides)"
+                    ]
+                },
+                {
+                    "recommendation": "Begin speech motor control therapy if dysarthria is confirmed",
+                    "priority": "Top",
+                    "tips": [
+                        "Employ rate control strategies such as paced speaking, metronome-timed phrases.",
+                        "Practice phrase repetition at varying speeds to promote controlled articulation."
+                    ],
+                    "resources_or_links": [
+                        "KidsSpeechTherapy.org motor speech resources",
+                        "YouTube: motor speech rate control exercises"
+                    ]
+                },
+                {
+                    "recommendation": "Incorporate bilingual articulation support",
+                    "priority": "Normal",
+                    "tips": [
+                        "Target similar phonemes in both languages during therapy to generalize motor planning.",
+                        "Use minimal pair practice, games, or cross\u2011language matching exercises."
+                    ],
+                    "resources_or_links": [
+                        "Bilingual speech therapy strategies from academic publications"
+                    ]
+                },
+                {
+                    "recommendation": "Engage parents in home practice",
+                    "priority": "Normal",
+                    "tips": [
+                        "Provide short daily structured practice with feedback.",
+                        "Record child reading or speaking and review clarity together."
+                    ],
+                    "resources_or_links": [
+                        "Parent resource pages from ASHA"
+                    ]
+                }
+            ],
+            "recommendations_ar": [
+                {
+                    "recommendation": "\u0627\u0644\u062d\u0635\u0648\u0644 \u0623\u0648\u0644\u0627\u064b \u0639\u0644\u0649 \u062a\u0642\u064a\u064a\u0645 \u0644\u0644\u0641\u0647\u0645 \u0648\u0623\u0646\u0645\u0627\u0637 \u0623\u062e\u0637\u0627\u0621 \u0627\u0644\u0641\u0648\u0646\u064a\u0645\u0627\u062a",
+                    "priority": "\u0639\u0627\u0644\u064a",
+                    "tips": [
+                        "\u0625\u062c\u0631\u0627\u0621 \u0642\u064a\u0627\u0633 \u0644\u0644\u0641\u0647\u0645 \u0645\u0639 \u0645\u0633\u062a\u0645\u0639\u064a\u0646 \u063a\u064a\u0631 \u0645\u0623\u0644\u0648\u0641\u064a\u0646 \u0628\u0643\u0644\u062a\u0627 \u0627\u0644\u0644\u063a\u062a\u064a\u0646.",
+                        "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0623\u062f\u0648\u0627\u062a \u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0646\u0637\u0642 \u0645\u062b\u0644 \u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a Goldman-Fristoe \u0628\u0627\u0644\u0644\u063a\u0629 \u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629 \u0648\u0627\u0644\u0639\u0631\u0628\u064a\u0629."
+                    ],
+                    "resources_or_links": [
+                        "\u0645\u0639\u0627\u064a\u064a\u0631 \u0642\u064a\u0627\u0633 \u0648\u0636\u0648\u062d \u0627\u0644\u0643\u0644\u0627\u0645 \u0645\u0646 ASHA",
+                        "\u0623\u062f\u0648\u0627\u062a \u0627\u0644\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0633\u0631\u064a\u0631\u064a\u0629 \u0645\u062b\u0644 \u0627\u062e\u062a\u0628\u0627\u0631 Goldman\u2011Fristoe \u0644\u0644\u0646\u0637\u0642"
+                    ]
+                },
+                {
+                    "recommendation": "\u0641\u062d\u0635 \u0648\u0638\u064a\u0641\u0629 \u0627\u0644\u0641\u0645-\u062d\u0631\u0643\u0629",
+                    "priority": "\u0639\u0627\u0644\u064a",
+                    "tips": [
+                        "\u062a\u0642\u064a\u064a\u0645 \u0642\u0648\u0629 \u0648\u062a\u0646\u0633\u064a\u0642 \u0648\u0645\u062f\u0649 \u062d\u0631\u0643\u0629 \u0623\u062c\u0647\u0632\u0629 \u0627\u0644\u0646\u0637\u0642.",
+                        "\u0645\u0644\u0627\u062d\u0638\u0629 \u0645\u0647\u0627\u0645 DDK \u0645\u062b\u0644 /pa-ta-ka/ \u0644\u0645\u0631\u0627\u0642\u0628\u0629 \u0627\u0644\u0648\u062a\u064a\u0631\u0629."
+                    ],
+                    "resources_or_links": [
+                        "\u0628\u0631\u0648\u062a\u0648\u0643\u0648\u0644\u0627\u062a \u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u062d\u0631\u0643\u0629 \u0627\u0644\u0641\u0645\u0648\u064a\u0629 (\u0645\u062b\u0644 \u0623\u062f\u0644\u0629 \u0641\u062d\u0635 \u0627\u0644\u062c\u0647\u0627\u0632 \u0627\u0644\u0641\u0645\u0648\u064a)"
+                    ]
+                },
+                {
+                    "recommendation": "\u0628\u062f\u0621 \u0639\u0644\u0627\u062c \u062d\u0631\u0643\u064a \u0644\u0644\u0643\u0644\u0627\u0645 \u0625\u0630\u0627 \u062a\u0623\u0643\u062f\u062a \u0627\u0644\u062f\u0633\u0623\u062b\u0631\u064a\u0627",
+                    "priority": "\u0639\u0627\u0644\u064a",
+                    "tips": [
+                        "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0627\u062a \u0627\u0644\u062a\u062d\u0643\u0645 \u0641\u064a \u0627\u0644\u0633\u0631\u0639\u0629 \u0645\u062b\u0644 \u0627\u0644\u0646\u0637\u0642 \u0627\u0644\u0645\u0648\u0632\u0648\u0646\u060c \u0648\u0627\u0644\u0639\u0628\u0627\u0631\u0627\u062a \u0627\u0644\u0645\u062a\u0632\u0627\u0645\u0646\u0629 \u0645\u0639 \u0627\u0644\u0645\u0650\u062a\u0631\u0648\u0646\u0648\u0645.",
+                        "\u0645\u0645\u0627\u0631\u0633\u0629 \u062a\u0643\u0631\u0627\u0631 \u0627\u0644\u0639\u0628\u0627\u0631\u0627\u062a \u0628\u0633\u0631\u0639\u0627\u062a \u0645\u062e\u062a\u0644\u0641\u0629 \u0644\u062a\u0639\u0632\u064a\u0632 \u0627\u0644\u0646\u0637\u0642 \u0627\u0644\u0645\u062a\u062d\u0643\u0645 \u0641\u064a\u0647."
+                    ],
+                    "resources_or_links": [
+                        "\u0645\u0635\u0627\u062f\u0631 KidsSpeechTherapy.org \u0644\u0644\u0639\u0644\u0627\u062c \u0627\u0644\u062d\u0631\u0643\u064a \u0644\u0644\u0643\u0644\u0627\u0645",
+                        "YouTube: \u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062a\u062d\u0643\u0645 \u0641\u064a \u0633\u0631\u0639\u0629 \u0627\u0644\u0643\u0644\u0627\u0645 \u0627\u0644\u062d\u0631\u0643\u064a"
+                    ]
+                },
+                {
+                    "recommendation": "\u0625\u062f\u0631\u0627\u062c \u062f\u0639\u0645 \u0627\u0644\u0646\u0637\u0642 \u0644\u0644\u0637\u0641\u0644 \u062b\u0646\u0627\u0626\u064a \u0627\u0644\u0644\u063a\u0629",
+                    "priority": "\u0639\u0627\u062f\u064a",
+                    "tips": [
+                        "\u0627\u0633\u062a\u0647\u062f\u0627\u0641 \u0641\u0648\u0646\u064a\u0645\u0627\u062a \u0645\u062a\u0634\u0627\u0628\u0647\u0629 \u0641\u064a \u0627\u0644\u0644\u063a\u062a\u064a\u0646 \u062e\u0644\u0627\u0644 \u0627\u0644\u0639\u0644\u0627\u062c \u0644\u062a\u0639\u0632\u064a\u0632 \u0627\u0644\u062a\u062e\u0637\u064a\u0637 \u0627\u0644\u062d\u0631\u0643\u064a \u0627\u0644\u0639\u0627\u0645.",
+                        "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u062a\u062f\u0631\u064a\u0628\u0627\u062a \u0623\u0632\u0648\u0627\u062c \u0643\u0644\u0645\u0627\u062a (minimal pairs)\u060c \u0623\u0644\u0639\u0627\u0628\u060c \u0623\u0648 \u062a\u0645\u0627\u0631\u064a\u0646 \u0645\u0637\u0627\u0628\u0642\u0629 \u0628\u064a\u0646 \u0627\u0644\u0644\u063a\u062a\u064a\u0646."
+                    ],
+                    "resources_or_links": [
+                        "\u0627\u0633\u062a\u0631\u0627\u062a\u064a\u062c\u064a\u0627\u062a \u0627\u0644\u0639\u0644\u0627\u062c \u0627\u0644\u062b\u0646\u0627\u0626\u064a \u0627\u0644\u0644\u063a\u0629 \u0645\u0646 \u0645\u0646\u0634\u0648\u0631\u0627\u062a \u0623\u0643\u0627\u062f\u064a\u0645\u064a\u0629"
+                    ]
+                },
+                {
+                    "recommendation": "\u0625\u0634\u0631\u0627\u0643 \u0627\u0644\u0648\u0627\u0644\u062f\u064a\u0646 \u0641\u064a \u0627\u0644\u0645\u0645\u0627\u0631\u0633\u0629 \u0627\u0644\u0645\u0646\u0632\u0644\u064a\u0629",
+                    "priority": "\u0639\u0627\u062f\u064a",
+                    "tips": [
+                        "\u062a\u0648\u0641\u064a\u0631 \u0645\u0645\u0627\u0631\u0633\u0627\u062a \u0642\u0635\u064a\u0631\u0629 \u064a\u0648\u0645\u064a\u0629 \u0645\u0648\u062c\u0647\u0629 \u0645\u0639 \u0645\u0644\u0627\u062d\u0638\u0627\u062a \u0641\u0648\u0631\u064a\u0629.",
+                        "\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u0637\u0641\u0644 \u0623\u062b\u0646\u0627\u0621 \u0627\u0644\u0642\u0631\u0627\u0621\u0629 \u0623\u0648 \u0627\u0644\u0643\u0644\u0627\u0645 \u0648\u0645\u0631\u0627\u062c\u0639\u0629 \u0627\u0644\u0648\u0636\u0648\u062d \u0645\u0639\u0647."
+                    ],
+                    "resources_or_links": [
+                        "\u0635\u0641\u062d\u0627\u062a \u0645\u0648\u0627\u0631\u062f \u0627\u0644\u0648\u0627\u0644\u062f\u064a\u0646 \u0645\u0646 ASHA"
+                    ]
+                }
+            ],
+            "references_and_resources_links": [
+                "Meredith et al. (2019) speech rate norms for 7\u2011year\u2011olds (approx 153 WPM) ([pmc.ncbi.nlm.nih.gov](https://pmc.ncbi.nlm.nih.gov/articles/PMC6802916/?utm_source=openai))",
+                "Speech fluency calculator norms (young children typical 80\u2011120 WPM) ([agentcalc.com](https://agentcalc.com/speech-fluency-progress-calculator?utm_source=openai))",
+                "Speech intelligibility norms (90% intelligible by age 7) ([thespeechguide.com](https://thespeechguide.com/speech-intelligibility/?utm_source=openai))"
+            ]
+        }
+    },
+    {
+        "user": "what resources do you think ahmed should practice on "
+    },
+    {
+        "agent": {
+            "accepted_msg": true,
+            "response": "That's a great question! Based on the earlier assessment, here are some resources that might be beneficial for Ahmed:\n\n1. **For Intelligibility and Phoneme Error Patterns**: Consider using articulated assessment tools like the Goldman-Fristoe Test of Articulation in both English and Arabic. This will help identify specific phoneme errors.\n\n2. **For Oral-Motor Function**: You can follow oral motor assessment protocols, which assess strength, coordination, and range of motion of speech-related muscles.\n\n3. **For Speech Motor Control**: If dysarthria is confirmed, motor speech rate control exercises could be helpful. Websites like KidsSpeechTherapy.org offer relevant resources, and there are exercises on platforms like YouTube.\n\n4. **Bilingual Articulation Support**: Implementing bilingual speech therapy strategies, targeting similar phonemes across languages, can be useful. Engage in exercises like minimal pairs practice.\n\n5. **Home Practice**: Engage Ahmed in structured daily practices at home, with activities providing immediate feedback. Resources from ASHA\u2019s Parent Resource Pages may be useful for guidance.\n\nConsider consulting a speech therapist to tailor these resources specifically to Ahmed\u2019s needs. They can provide detailed guidance and support."
+        }
+    }
+]
