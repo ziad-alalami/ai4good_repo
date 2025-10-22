@@ -6,9 +6,9 @@ from pathlib import Path
 from uuid import uuid4, UUID
 from flask_cors import CORS
 from utils.text_sampler.text_sampler import sample_text_phoneme
-from utils.storage.storage import save_data, save_audio, get_audio_path, save_audio_wav
+from utils.storage.storage import save_data, get_audio_path, save_audio_wav
 from utils.speech_rate.speech_rate import get_speech_rate, get_phoneme_rate
-# from model.bert.inference import predict
+from model.bert.inference import Classifier
 from model.agent.main_agent import get_agent_response
 from model.agent.chatbot import respond
 
@@ -23,7 +23,7 @@ question_json = json.loads(question_path.read_text(encoding= "utf-8"))
 text_path = Path(os.environ.get("USER_TEXT_FILE", "./data/background/questions.json"))
 text_json = json.loads(text_path.read_text(encoding="utf-8"))
 
-
+classifier = Classifier(os.environ.get("BERT_MODEL_FILE", "./data/models/best_model.pt"))
 request_id = len(os.listdir("./data/audio/"))
 
 @app.route("/questions", methods = ['GET'])
@@ -92,8 +92,7 @@ def upload():
     if phoneme_rate == 0:
         abort(400, description = "Could not extract phonemes from provided text.") 
     
-    #dysarthria_prob = predict(get_audio_path(request_id), gender= gender)
-    dysarthria_prob = 0.0431
+    dysarthria_prob = classifier.predict(get_audio_path(request_id), gender= gender)
 
     data['speech_rate'] = speech_rate
     data['phoneme_rate'] = phoneme_rate
