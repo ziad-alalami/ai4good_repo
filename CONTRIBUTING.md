@@ -133,6 +133,15 @@ Closes #42
 ```bash
 uv run python app/app.py
 ```
+for the frontend and (in another terminal)
+```bash
+cd frontend/my-react-app
+```
+followed by
+```bash
+npm install
+npm run dev
+```
 
 ### Testing API Endpoints
 Test endpoints manually or using tools like curl:
@@ -195,6 +204,7 @@ Before submitting:
 ```
 ai4good_repo/
 ├── app/              # Flask application
+├── frontend/         # Frotnend application
 ├── model/            # ML models (BERT, agents)
 ├── utils/            # Utility functions
 ├── data/             # Data storage
