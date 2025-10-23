@@ -130,8 +130,9 @@ This AI companion can walk you through the setup, model logic, and contribution 
 
 ## ⚖️ License
 
-This project is open source under the **MIT License**.  
-By contributing, you agree that your contributions will be licensed under the same terms.
+- **Code & Software**: Licensed under the [MIT License](./LICENSE.md)  
+- **Documentation, designs, and other creative works**: Licensed under the [CC-BY 4.0 License](./LICENSE-CC-BY-4.0.md)
+- By contributing, you agree that your contributions will be licensed under the same terms.
 
 ---
 
